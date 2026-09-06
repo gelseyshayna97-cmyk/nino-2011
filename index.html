@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy 15th Birthday Nino</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ==============================
+   BASIC
+============================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    background:#061321;
+    color:#f4f6f8;
+    font-family:"Inter",sans-serif;
+    overflow:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-2;
+
+    background:
+    radial-gradient(
+        circle at 50% 25%,
+        rgba(50,88,125,.25),
+        transparent 40%
+    ),
+    radial-gradient(
+        circle at 10% 90%,
+        rgba(24,56,90,.20),
+        transparent 35%
+    );
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:100;
+    pointer-events:none;
+    opacity:.04;
+
+    background-image:
+    repeating-radial-gradient(
+        circle at 0 0,
+        transparent 0,
+        transparent 2px,
+        white 3px
+    );
+}
+
+
+/* ==============================
+   SLIDES
+============================== */
+
+.slide{
+    position:fixed;
+    inset:0;
+
+    display:none;
+
+    overflow-y:auto;
+
+    padding:45px 22px 100px;
+}
+
+.slide.active{
+    display:flex;
+
+    animation:fadeIn .7s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.container{
+    width:100%;
+    max-width:700px;
+    margin:auto;
+}
+
+
+/* ==============================
+   TEXT
+============================== */
+
+.kicker{
+    font-size:9px;
+    letter-spacing:5px;
+    color:#8195a9;
+    text-transform:uppercase;
+}
+
+.serif{
+    font-family:"Cormorant Garamond",serif;
+}
+
+.number{
+    font-family:"Cormorant Garamond",serif;
+    font-size:120px;
+    line-height:.6;
+    color:rgba(255,255,255,.055);
+}
+
+
+/* ==============================
+   SLIDE 1 — PASSWORD
+============================== */
+
+#slide1{
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.lock{
+    width:100%;
+    max-width:380px;
+}
+
+.lock-symbol{
+    font-size:30px;
+    margin:25px 0;
+}
+
+.lock h1{
+    font-family:"Cormorant Garamond",serif;
+    font-size:43px;
+    font-weight:500;
+}
+
+.lock-description{
+    color:#8c9dae;
+    font-size:11px;
+    margin:10px 0 30px;
+}
+
+.passcode{
+    display:flex;
+    justify-content:center;
+    gap:9px;
+}
+
+.dot{
+    width:10px;
+    height:10px;
+
+    border:1px solid #8094a8;
+    border-radius:50%;
+
+    transition:.2s;
+}
+
+.dot.active{
+    background:white;
+    border-color:white;
+}
+
+.error{
+    height:20px;
+    margin-top:10px;
+
+    color:#c6a5a5;
+    font-size:10px;
+}
+
+.keypad{
+    display:grid;
+    grid-template-columns:repeat(3,70px);
+    justify-content:center;
+    gap:12px;
+}
+
+.key{
+    width:70px;
+    height:58px;
+
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,.13);
+
+    background:rgba(255,255,255,.04);
+
+    color:white;
+    font-size:18px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(10px);
+
+    transition:.15s;
+}
+
+.key span{
+    display:block;
+
+    color:#64788c;
+
+    font-size:7px;
+    letter-spacing:1px;
+}
+
+.key:active{
+    transform:scale(.93);
+}
+
+.empty{
+    background:transparent;
+    border:none;
+}
+
+.shake{
+    animation:shake .4s;
+}
+
+@keyframes shake{
+
+    0%,100%{
+        transform:translateX(0);
+    }
+
+    25%{
+        transform:translateX(-8px);
+    }
+
+    50%{
+        transform:translateX(8px);
+    }
+
+    75%{
+        transform:translateX(-5px);
+    }
+
+}
+
+.hint{
+    margin-top:25px;
+
+    color:#596e82;
+
+    font-size:8px;
+    letter-spacing:3px;
+}
+
+
+/* ==============================
+   SLIDE 2 — FROM GELSEY
+============================== */
+
+#slide2{
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.opening h1{
+    font-family:"Cormorant Garamond",serif;
+    font-size:50px;
+    font-weight:500;
+
+    margin-top:10px;
+}
+
+.opening p{
+    max-width:480px;
+
+    margin:25px auto;
+
+    color:#97a8b7;
+
+    font-size:12px;
+    line-height:2;
+}
+
+
+/* ==============================
+   SLIDE 3 — 15
+============================== */
+
+#slide3{
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.chapter h1{
+    font-family:"Cormorant Garamond",serif;
+    font-size:58px;
+    font-weight:500;
+
+    margin-top:15px;
+}
+
+.chapter p{
+    color:#8799aa;
+
+    font-size:10px;
+    letter-spacing:3px;
+
+    margin-top:15px;
+}
+
+
+/* ==============================
+   SLIDE 4 — MESSAGE
+============================== */
+
+.message{
+    width:100%;
+    max-width:650px;
+    margin:auto;
+
+    text-align:left;
+}
+
+.message h2{
+    font-family:"Cormorant Garamond",serif;
+    font-size:45px;
+    font-weight:500;
+
+    margin:12px 0 30px;
+}
+
+.message-content{
+    border-left:1px solid rgba(255,255,255,.14);
+
+    padding-left:20px;
+}
+
+.message-content p{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:21px;
+    line-height:1.7;
+
+    color:#dce3e8;
+
+    margin-bottom:23px;
+}
+
+.message-content .big{
+    font-size:27px;
+}
+
+
+/* ==============================
+   SLIDE 5
+============================== */
+
+#slide5{
+    align-items:center;
+    justify-content:center;
+}
+
+.message-center{
+    width:100%;
+    max-width:600px;
+
+    text-align:center;
+}
+
+.message-center h2{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:48px;
+    font-weight:500;
+
+    margin:15px 0 25px;
+}
+
+.message-center p{
+    color:#98a8b7;
+
+    font-size:12px;
+    line-height:2;
+}
+
+
+/* ==============================
+   SLIDE 6
+============================== */
+
+#slide6{
+    align-items:center;
+    justify-content:center;
+}
+
+.appreciation{
+    width:100%;
+    max-width:620px;
+
+    text-align:center;
+}
+
+.appreciation h2{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:48px;
+    font-weight:500;
+
+    margin:15px 0 30px;
+}
+
+.appreciation p{
+    color:#98a8b7;
+
+    font-size:12px;
+    line-height:2;
+}
+
+
+/* ==============================
+   SLIDE 7
+============================== */
+
+#slide7{
+    align-items:center;
+    justify-content:center;
+}
+
+.friendship{
+    max-width:600px;
+    text-align:center;
+}
+
+.friendship h2{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:48px;
+    font-weight:500;
+
+    margin:15px 0 25px;
+}
+
+.friendship p{
+    color:#98a8b7;
+
+    font-size:12px;
+    line-height:2;
+}
+
+
+/* ==============================
+   SLIDE 8 — 9 FOTO + VIDEO
+============================== */
+
+#slide8{
+    justify-content:center;
+}
+
+.media{
+    width:100%;
+    max-width:750px;
+    margin:auto;
+}
+
+.media-header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.media-header h2{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:46px;
+    font-weight:500;
+
+    margin-top:10px;
+}
+
+.media-header p{
+    color:#8497aa;
+
+    font-size:10px;
+    letter-spacing:2px;
+
+    margin-top:8px;
+}
+
+
+/* FOTO */
+
+.photos{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:14px;
+}
+
+.photo{
+    background:#eef0f1;
+
+    padding:6px 6px 18px;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.35);
+}
+
+.photo:nth-child(1){
+    transform:rotate(-2deg);
+}
+
+.photo:nth-child(2){
+    transform:rotate(1deg);
+}
+
+.photo:nth-child(3){
+    transform:rotate(-1deg);
+}
+
+.photo:nth-child(4){
+    transform:rotate(2deg);
+}
+
+.photo:nth-child(5){
+    transform:rotate(-1deg);
+}
+
+.photo:nth-child(6){
+    transform:rotate(1deg);
+}
+
+.photo:nth-child(7){
+    transform:rotate(-2deg);
+}
+
+.photo:nth-child(8){
+    transform:rotate(2deg);
+}
+
+.photo:nth-child(9){
+    transform:rotate(-1deg);
+}
+
+.photo img{
+    width:100%;
+
+    display:block;
+
+    aspect-ratio:1/1;
+
+    object-fit:cover;
+
+    background:#cbd1d5;
+}
+
+.photo p{
+    color:#28333b;
+
+    text-align:center;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:13px;
+
+    margin-top:5px;
+}
+
+
+/* VIDEO */
+
+.video{
+    margin-top:40px;
+}
+
+.video-title{
+    color:#8194a7;
+
+    text-align:center;
+
+    font-size:9px;
+    letter-spacing:4px;
+
+    margin-bottom:12px;
+}
+
+.video video{
+    width:100%;
+
+    display:block;
+
+    border:1px solid rgba(255,255,255,.13);
+
+    background:#02070c;
+}
+
+
+/* ==============================
+   SLIDE 9
+============================== */
+
+#slide9{
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.random h2{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:48px;
+    font-weight:500;
+
+    margin:15px 0;
+}
+
+.random p{
+    color:#94a5b4;
+
+    font-size:12px;
+    line-height:2;
+}
+
+
+/* ==============================
+   SLIDE 10
+============================== */
+
+#slide10{
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.wish{
+    max-width:600px;
+}
+
+.wish h2{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:48px;
+    font-weight:500;
+
+    margin:15px 0 25px;
+}
+
+.wish p{
+    color:#97a8b7;
+
+    font-size:12px;
+    line-height:2;
+}
+
+
+/* ==============================
+   SLIDE 11
+============================== */
+
+#slide11{
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.from-gelsey{
+    max-width:600px;
+}
+
+.from-gelsey h2{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:58px;
+    font-weight:500;
+
+    margin:15px 0 25px;
+}
+
+.from-gelsey p{
+    color:#97a8b7;
+
+    font-size:12px;
+    line-height:2;
+}
+
+
+/* ==============================
+   SLIDE 12
+============================== */
+
+#slide12{
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.ending-number{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:130px;
+    line-height:.6;
+
+    color:rgba(255,255,255,.055);
+}
+
+.ending h1{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:55px;
+    font-weight:500;
+}
+
+.ending p{
+    color:#8799aa;
+
+    font-size:9px;
+    letter-spacing:4px;
+
+    margin-top:15px;
+}
+
+.line{
+    width:50px;
+    height:1px;
+
+    background:rgba(255,255,255,.3);
+
+    margin:30px auto;
+}
+
+.signature{
+    color:#718497;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:19px;
+}
+
+
+/* ==============================
+   NAVIGATION
+============================== */
+
+.navigation{
+    position:fixed;
+
+    left:0;
+    right:0;
+    bottom:18px;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:12px;
+
+    z-index:50;
+}
+
+.nav{
+    border:1px solid rgba(255,255,255,.15);
+
+    background:rgba(5,17,30,.82);
+
+    color:#dce3e8;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    font-size:9px;
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(10px);
+}
+
+.nav:active{
+    transform:scale(.95);
+}
+
+.counter{
+    color:#62778b;
+
+    font-size:9px;
+    letter-spacing:2px;
+}
+
+
+/* ==============================
+   MUSIC
+============================== */
+
+.music{
+    position:fixed;
+
+    top:18px;
+    right:18px;
+
+    display:none;
+
+    z-index:60;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background:rgba(5,17,30,.8);
+
+    color:#dce3e8;
+
+    padding:10px 15px;
+
+    border-radius:30px;
+
+    font-size:8px;
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(10px);
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media(max-width:600px){
+
+    .slide{
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .number{
+        font-size:100px;
+    }
+
+    .opening h1{
+        font-size:42px;
+    }
+
+    .chapter h1{
+        font-size:48px;
+    }
+
+    .message h2{
+        font-size:39px;
+    }
+
+    .message-content p{
+        font-size:19px;
+    }
+
+    .message-center h2{
+        font-size:41px;
+    }
+
+    .photos{
+        gap:8px;
+    }
+
+    .photo{
+        padding:4px 4px 12px;
+    }
+
+    .photo p{
+        font-size:10px;
+    }
+
+    .ending h1{
+        font-size:45px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     MUSIC
+================================================== -->
+
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- ==================================================
+     SLIDE 1
+================================================== -->
+
+<section class="slide active" id="slide1">
+
+<div class="lock">
+
+    <div class="kicker">
+        PRIVATE MESSAGE
+    </div>
+
+    <div class="lock-symbol">
+        ♢
+    </div>
+
+    <h1>
+        A little secret...
+    </h1>
+
+    <div class="lock-description">
+        enter the code to continue
+    </div>
+
+    <div class="passcode" id="passcode">
+
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+
+    </div>
+
+    <div class="error" id="error"></div>
+
+    <div class="keypad">
+
+        <button class="key" onclick="pressNumber('1')">
+            1
+        </button>
+
+        <button class="key" onclick="pressNumber('2')">
+            2
+            <span>ABC</span>
+        </button>
+
+        <button class="key" onclick="pressNumber('3')">
+            3
+            <span>DEF</span>
+        </button>
+
+        <button class="key" onclick="pressNumber('4')">
+            4
+            <span>GHI</span>
+        </button>
+
+        <button class="key" onclick="pressNumber('5')">
+            5
+            <span>JKL</span>
+        </button>
+
+        <button class="key" onclick="pressNumber('6')">
+            6
+            <span>MNO</span>
+        </button>
+
+        <button class="key" onclick="pressNumber('7')">
+            7
+            <span>PQRS</span>
+        </button>
+
+        <button class="key" onclick="pressNumber('8')">
+            8
+            <span>TUV</span>
+        </button>
+
+        <button class="key" onclick="pressNumber('9')">
+            9
+            <span>WXYZ</span>
+        </button>
+
+        <button class="key empty"></button>
+
+        <button class="key" onclick="pressNumber('0')">
+            0
+        </button>
+
+        <button class="key" onclick="deleteNumber()">
+            ←
+        </button>
+
+    </div>
+
+    <div class="hint">
+        8 DIGIT ACCESS
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 2
+================================================== -->
+
+<section class="slide" id="slide2">
+
+<div class="container opening">
+
+    <div class="number">
+        01
+    </div>
+
+    <div class="kicker">
+        FROM GELSEY
+    </div>
+
+    <h1>
+        This little website<br>
+        is for you.
+    </h1>
+
+    <p>
+        Nggak tau kenapa tiba-tiba kepikiran
+        bikin sesuatu kayak gini. Tapi karena
+        kamu ulang tahun, jadi sekalian aja.
+        Semoga kamu suka.
+    </p>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 3
+================================================== -->
+
+<section class="slide" id="slide3">
+
+<div class="container chapter">
+
+    <div class="number">
+        02
+    </div>
+
+    <div class="kicker">
+        OFFICIALLY
+    </div>
+
+    <h1>
+        You're 15 now.
+    </h1>
+
+    <p>
+        selamat datang di chapter baru :)
+    </p>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 4
+================================================== -->
+
+<section class="slide" id="slide4">
+
+<div class="message">
+
+    <div class="kicker">
+        FIRST OF ALL
+    </div>
+
+    <h2>
+        Happy birthday,<br>
+        Ninoo! 🥳🎂
+    </h2>
+
+    <div class="message-content">
+
+        <p class="big">
+            Selamat ulang tahun yaa.
+        </p>
+
+        <p>
+            Semoga di umur yang sekarang kamu
+            bisa jadi versi terbaik dari diri kamu
+            sendiri.
+        </p>
+
+        <p>
+            Semoga semua hal baik yang kamu
+            usahakan selama ini satu-satu bisa
+            tercapai.
+        </p>
+
+        <p>
+            Semoga selalu dikasih kesehatan,
+            kebahagiaan, rezeki yang cukup,
+            dan orang-orang baik yang selalu
+            ada di sekitar kamu.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 5
+================================================== -->
+
+<section class="slide" id="slide5">
+
+<div class="message-center">
+
+    <div class="kicker">
+        CHAPTER 15
+    </div>
+
+    <h2>
+        More good things
+        are coming.
+    </h2>
+
+    <p>
+
+        Uwihhh sekarang umur kamu nambah lagi.
+
+        <br><br>
+
+        Semoga bertambahnya umur bukan cuma
+        sekadar angka, tapi juga jadi awal dari
+        banyak hal baik yang bakal kamu temuin
+        ke depannya.
+
+        <br><br>
+
+        Mungkin nggak semua hari bakal berjalan
+        sesuai yang kamu mau, tapi semoga kamu
+        selalu punya alasan buat tetap semangat
+        dan terus melangkah.
+
+    </p>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 6
+================================================== -->
+
+<section class="slide" id="slide6">
+
+<div class="appreciation">
+
+    <div class="kicker">
+        THANK YOU
+    </div>
+
+    <h2>
+        For the memories.
+    </h2>
+
+    <p>
+
+        Makasih juga karena selama ini udah
+        jadi teman yang baik.
+
+        <br><br>
+
+        Makasih buat semua cerita, candaan,
+        obrolan random, dan hal-hal kecil
+        yang mungkin kelihatannya sepele.
+
+        <br><br>
+
+        Tapi ternyata hal-hal kecil itu yang
+        nantinya jadi bagian dari kenangan
+        yang bakal diinget.
+
+    </p>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 7
+================================================== -->
+
+<section class="slide" id="slide7">
+
+<div class="friendship">
+
+    <div class="kicker">
+        A LITTLE REMINDER
+    </div>
+
+    <h2>
+        Keep being yourself.
+    </h2>
+
+    <p>
+
+        Aku juga berharap di umur yang baru
+        ini kamu bisa lebih percaya sama
+        diri sendiri.
+
+        <br><br>
+
+        Jangan terlalu sering ngerasa kurang
+        atau ngebandingin diri kamu sama
+        orang lain, karena setiap orang
+        punya waktunya masing-masing.
+
+        <br><br>
+
+        Tetap jadi Nino yang aku kenal,
+        yang punya caranya sendiri buat
+        menghadapi banyak hal.
+
+    </p>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 8
+================================================== -->
+
+<section class="slide" id="slide8">
+
+<div class="media">
+
+    <div class="media-header">
+
+        <div class="kicker">
+            RANDOM MEMORIES
+        </div>
+
+        <h2>
+            A few things.
+        </h2>
+
+        <p>
+            9 photos · 1 random video
+        </p>
+
+    </div>
+
+
+    <!-- 9 FOTO -->
+
+    <div class="photos">
+
+        <div class="photo">
+            <img src="foto1.jpg" alt="Foto 1">
+            <p>01</p>
+        </div>
+
+        <div class="photo">
+            <img src="foto2.jpg" alt="Foto 2">
+            <p>02</p>
+        </div>
+
+        <div class="photo">
+            <img src="foto3.jpg" alt="Foto 3">
+            <p>03</p>
+        </div>
+
+        <div class="photo">
+            <img src="foto4.jpg" alt="Foto 4">
+            <p>04</p>
+        </div>
+
+        <div class="photo">
+            <img src="foto5.jpg" alt="Foto 5">
+            <p>05</p>
+        </div>
+
+        <div class="photo">
+            <img src="foto6.jpg" alt="Foto 6">
+            <p>06</p>
+        </div>
+
+        <div class="photo">
+            <img src="foto7.jpg" alt="Foto 7">
+            <p>07</p>
+        </div>
+
+        <div class="photo">
+            <img src="foto8.jpg" alt="Foto 8">
+            <p>08</p>
+        </div>
+
+        <div class="photo">
+            <img src="foto9.jpg" alt="Foto 9">
+            <p>09</p>
+        </div>
+
+    </div>
+
+
+    <!-- 1 VIDEO -->
+
+    <div class="video">
+
+        <div class="video-title">
+            ONE RANDOM VIDEO
+        </div>
+
+        <video controls playsinline>
+
+            <source src="video.mp4" type="video/mp4">
+
+            Browser kamu tidak mendukung video.
+
+        </video>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 9
+================================================== -->
+
+<section class="slide" id="slide9">
+
+<div class="random">
+
+    <div class="kicker">
+        BTW
+    </div>
+
+    <h2>
+        Yes, the video is random.
+    </h2>
+
+    <p>
+        Nggak ada hubungannya sama ulang tahun.
+        <br>
+        Tapi yaudah masukin aja 😭
+    </p>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 10
+================================================== -->
+
+<section class="slide" id="slide10">
+
+<div class="wish">
+
+    <div class="kicker">
+        ONE LAST WISH
+    </div>
+
+    <h2>
+        For your 15th year...
+    </h2>
+
+    <p>
+
+        Semoga tahun ini membawa lebih banyak
+        tawa daripada air mata, lebih banyak
+        kabar baik daripada kabar buruk,
+        dan lebih banyak momen yang bikin
+        kamu bersyukur.
+
+        <br><br>
+
+        Kalau nanti ada masa-masa yang berat,
+        semoga kamu selalu inget kalau kamu
+        nggak harus menghadapi semuanya
+        sendirian.
+
+        <br><br>
+
+        Yang penting jangan berhenti percaya
+        kalau setelah hari yang berat pasti
+        ada hari yang lebih baik.
+
+        <br><br>
+
+        Semoga semua doa yang belum sempat
+        kamu ceritakan ke siapa-siapa bisa
+        menemukan jalannya masing-masing
+        untuk terkabul.
+
+    </p>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 11
+================================================== -->
+
+<section class="slide" id="slide11">
+
+<div class="from-gelsey">
+
+    <div class="kicker">
+        A MESSAGE FROM
+    </div>
+
+    <h2>
+        Gelsey.
+    </h2>
+
+    <p>
+
+        Pokoknya sekali lagi,
+        happy birthday, Nino! 🎉
+
+        <br><br>
+
+        Semoga umur 15 membawa banyak
+        keberuntungan dan kebahagiaan
+        buat kamu.
+
+        <br><br>
+
+        Semoga kamu selalu sehat, bahagia,
+        sukses, dan tetap jadi orang baik.
+
+        <br><br>
+
+        Semoga tahun ini jadi tahun yang
+        penuh cerita baik dan momen yang
+        bisa kamu inget nanti.
+
+    </p>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 12
+================================================== -->
+
+<section class="slide" id="slide12">
+
+<div class="ending">
+
+    <div class="ending-number">
+        15
+    </div>
+
+    <div class="kicker">
+        THE END
+    </div>
+
+    <h1>
+        Happy Birthday,<br>
+        Nino. ♡
+    </h1>
+
+    <div class="line"></div>
+
+    <p>
+        MAY THIS BE ONE OF YOUR BEST YEARS.
+    </p>
+
+    <div class="line"></div>
+
+    <div class="signature">
+        made specially by Gelsey
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     NAVIGATION
+================================================== -->
+
+<div class="navigation" id="navigation">
+
+    <button class="nav" onclick="previousSlide()">
+        ← BACK
+    </button>
+
+    <div class="counter" id="counter">
+        01 / 12
+    </div>
+
+    <button class="nav" onclick="nextSlide()">
+        NEXT →
+    </button>
+
+</div>
+
+
+<!-- MUSIC -->
+
+<button class="music" id="musicButton" onclick="toggleMusic()">
+    ♫ MUSIC
+</button>
+
+
+<script>
+
+/* ==============================
+   PASSWORD
+============================== */
+
+const SECRET_CODE = "69692011";
+
+let enteredCode = "";
+
+const dots = document.querySelectorAll(".dot");
+
+const errorText =
+    document.getElementById("error");
+
+const passcode =
+    document.getElementById("passcode");
+
+
+function pressNumber(number){
+
+    if(enteredCode.length >= 8){
+        return;
+    }
+
+    enteredCode += number;
+
+    updateDots();
+
+    if(enteredCode.length === 8){
+
+        setTimeout(checkCode,250);
+
+    }
+
+}
+
+
+function deleteNumber(){
+
+    enteredCode =
+        enteredCode.slice(0,-1);
+
+    updateDots();
+
+    errorText.textContent = "";
+
+}
+
+
+function updateDots(){
+
+    dots.forEach((dot,index)=>{
+
+        if(index < enteredCode.length){
+
+            dot.classList.add("active");
+
+        }else{
+
+            dot.classList.remove("active");
+
+        }
+
+    });
+
+}
+
+
+function checkCode(){
+
+    if(enteredCode === SECRET_CODE){
+
+        errorText.textContent =
+            "access granted ♡";
+
+        startMusic();
+
+        setTimeout(()=>{
+
+            showSlide(1);
+
+        },700);
+
+    }else{
+
+        errorText.textContent =
+            "wrong code, try again ♡";
+
+        passcode.classList.add("shake");
+
+        setTimeout(()=>{
+
+            passcode.classList.remove("shake");
+
+            enteredCode = "";
+
+            updateDots();
+
+        },500);
+
+    }
+
+}
+
+
+/* ==============================
+   SLIDE SYSTEM
+============================== */
+
+let currentSlide = 0;
+
+const slides =
+    document.querySelectorAll(".slide");
+
+const navigation =
+    document.getElementById("navigation");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+const counter =
+    document.getElementById("counter");
+
+
+function showSlide(index){
+
+    if(index < 0 || index >= slides.length){
+        return;
+    }
+
+    slides.forEach(slide=>{
+
+        slide.classList.remove("active");
+
+    });
+
+    slides[index].classList.add("active");
+
+    currentSlide = index;
+
+    updateInterface();
+
+}
+
+
+function updateInterface(){
+
+    if(currentSlide === 0){
+
+        navigation.style.display = "none";
+
+        musicButton.style.display = "none";
+
+    }else{
+
+        navigation.style.display = "flex";
+
+        musicButton.style.display = "block";
+
+    }
+
+    counter.textContent =
+        String(currentSlide + 1).padStart(2,"0")
+        + " / 12";
+
+}
+
+
+function nextSlide(){
+
+    if(currentSlide < slides.length - 1){
+
+        showSlide(currentSlide + 1);
+
+    }
+
+}
+
+
+function previousSlide(){
+
+    if(currentSlide > 1){
+
+        showSlide(currentSlide - 1);
+
+    }
+
+}
+
+
+/* ==============================
+   MUSIC
+============================== */
+
+const music =
+    document.getElementById("music");
+
+
+function startMusic(){
+
+    music.volume = 0.45;
+
+    music.play()
+    .then(()=>{
+
+        musicButton.textContent =
+            "♫ MUSIC ON";
+
+    })
+    .catch(()=>{
+
+        musicButton.textContent =
+            "♫ PLAY MUSIC";
+
+    });
+
+}
+
+
+function toggleMusic(){
+
+    if(music.paused){
+
+        music.play();
+
+        musicButton.textContent =
+            "♫ MUSIC ON";
+
+    }else{
+
+        music.pause();
+
+        musicButton.textContent =
+            "♫ MUSIC OFF";
+
+    }
+
+}
+
+
+/* ==============================
+   KEYBOARD
+============================== */
+
+document.addEventListener("keydown",(event)=>{
+
+    if(currentSlide !== 0){
+        return;
+    }
+
+    if(/^[0-9]$/.test(event.key)){
+
+        pressNumber(event.key);
+
+    }
+
+    if(event.key === "Backspace"){
+
+        deleteNumber();
+
+    }
+
+});
+
+
+/* ==============================
+   SWIPE HP
+============================== */
+
+let startX = 0;
+
+let endX = 0;
+
+
+document.addEventListener("touchstart",(event)=>{
+
+    startX =
+        event.changedTouches[0].screenX;
+
+});
+
+
+document.addEventListener("touchend",(event)=>{
+
+    endX =
+        event.changedTouches[0].screenX;
+
+    const distance =
+        endX - startX;
+
+    if(Math.abs(distance) < 60){
+        return;
+    }
+
+    if(distance < 0){
+
+        nextSlide();
+
+    }else{
+
+        previousSlide();
+
+    }
+
+});
+
+
+/* START */
+
+showSlide(0);
+
+</script>
+
+</body>
+  </html>
