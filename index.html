@@ -6,31 +6,17 @@
 
 <title>Happy 15th Birthday Nino</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
-
-/* ==============================
-   BASIC
-============================== */
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-html,body{
-    width:100%;
-    height:100%;
-}
-
 body{
     background:#061321;
-    color:#f4f6f8;
-    font-family:"Inter",sans-serif;
+    color:#f5f7fa;
+    font-family:Arial,sans-serif;
     overflow:hidden;
 }
 
@@ -38,107 +24,54 @@ body::before{
     content:"";
     position:fixed;
     inset:0;
-    z-index:-2;
-
+    z-index:-1;
     background:
-    radial-gradient(
-        circle at 50% 25%,
-        rgba(50,88,125,.25),
-        transparent 40%
-    ),
-    radial-gradient(
-        circle at 10% 90%,
-        rgba(24,56,90,.20),
-        transparent 35%
-    );
+    radial-gradient(circle at 50% 20%,#173b5b 0%,transparent 40%),
+    radial-gradient(circle at 10% 90%,#0d2942 0%,transparent 35%);
 }
-
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:100;
-    pointer-events:none;
-    opacity:.04;
-
-    background-image:
-    repeating-radial-gradient(
-        circle at 0 0,
-        transparent 0,
-        transparent 2px,
-        white 3px
-    );
-}
-
-
-/* ==============================
-   SLIDES
-============================== */
 
 .slide{
     position:fixed;
     inset:0;
-
     display:none;
-
     overflow-y:auto;
-
-    padding:45px 22px 100px;
+    padding:40px 22px 100px;
 }
 
 .slide.active{
     display:flex;
-
-    animation:fadeIn .7s ease;
+    animation:fade .7s ease;
 }
 
-@keyframes fadeIn{
-
+@keyframes fade{
     from{
         opacity:0;
-        transform:translateY(20px);
+        transform:translateY(18px);
     }
-
     to{
         opacity:1;
         transform:translateY(0);
     }
-
 }
 
 .container{
     width:100%;
-    max-width:700px;
+    max-width:650px;
     margin:auto;
 }
 
-
-/* ==============================
-   TEXT
-============================== */
-
 .kicker{
+    color:#8197aa;
     font-size:9px;
-    letter-spacing:5px;
-    color:#8195a9;
+    letter-spacing:4px;
     text-transform:uppercase;
 }
 
 .serif{
-    font-family:"Cormorant Garamond",serif;
+    font-family:Georgia,serif;
 }
 
-.number{
-    font-family:"Cormorant Garamond",serif;
-    font-size:120px;
-    line-height:.6;
-    color:rgba(255,255,255,.055);
-}
-
-
-/* ==============================
-   SLIDE 1 — PASSWORD
-============================== */
+/* PASSWORD */
 
 #slide1{
     align-items:center;
@@ -151,49 +84,45 @@ body::after{
     max-width:380px;
 }
 
-.lock-symbol{
+.lock-icon{
     font-size:30px;
-    margin:25px 0;
+    margin:25px;
 }
 
 .lock h1{
-    font-family:"Cormorant Garamond",serif;
-    font-size:43px;
-    font-weight:500;
+    font-family:Georgia,serif;
+    font-size:42px;
+    font-weight:400;
+    margin:15px 0;
 }
 
-.lock-description{
-    color:#8c9dae;
+.description{
+    color:#8fa1b1;
     font-size:11px;
-    margin:10px 0 30px;
+    margin-bottom:28px;
 }
 
 .passcode{
     display:flex;
     justify-content:center;
     gap:9px;
+    margin-bottom:12px;
 }
 
 .dot{
     width:10px;
     height:10px;
-
-    border:1px solid #8094a8;
+    border:1px solid #8498aa;
     border-radius:50%;
-
-    transition:.2s;
 }
 
 .dot.active{
     background:white;
-    border-color:white;
 }
 
 .error{
     height:20px;
-    margin-top:10px;
-
-    color:#c6a5a5;
+    color:#b8a0a0;
     font-size:10px;
 }
 
@@ -207,274 +136,90 @@ body::after{
 .key{
     width:70px;
     height:58px;
-
     border-radius:15px;
-    border:1px solid rgba(255,255,255,.13);
-
-    background:rgba(255,255,255,.04);
-
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.05);
     color:white;
     font-size:18px;
-
-    cursor:pointer;
-
-    backdrop-filter:blur(10px);
-
-    transition:.15s;
 }
 
 .key span{
     display:block;
-
-    color:#64788c;
-
+    color:#65798c;
     font-size:7px;
     letter-spacing:1px;
 }
 
-.key:active{
-    transform:scale(.93);
-}
-
 .empty{
-    background:transparent;
     border:none;
-}
-
-.shake{
-    animation:shake .4s;
-}
-
-@keyframes shake{
-
-    0%,100%{
-        transform:translateX(0);
-    }
-
-    25%{
-        transform:translateX(-8px);
-    }
-
-    50%{
-        transform:translateX(8px);
-    }
-
-    75%{
-        transform:translateX(-5px);
-    }
-
+    background:transparent;
 }
 
 .hint{
     margin-top:25px;
-
-    color:#596e82;
-
+    color:#607488;
     font-size:8px;
     letter-spacing:3px;
 }
 
+/* GENERAL */
 
-/* ==============================
-   SLIDE 2 — FROM GELSEY
-============================== */
-
-#slide2{
-    align-items:center;
-    justify-content:center;
+.center{
+    width:100%;
+    max-width:620px;
+    margin:auto;
     text-align:center;
 }
 
-.opening h1{
-    font-family:"Cormorant Garamond",serif;
-    font-size:50px;
-    font-weight:500;
-
-    margin-top:10px;
+.big-number{
+    font-family:Georgia,serif;
+    font-size:110px;
+    line-height:.6;
+    color:rgba(255,255,255,.05);
 }
 
-.opening p{
-    max-width:480px;
+h2{
+    font-family:Georgia,serif;
+    font-weight:400;
+    font-size:48px;
+    margin:18px 0 25px;
+}
 
-    margin:25px auto;
-
-    color:#97a8b7;
-
+p{
+    color:#98a9b8;
     font-size:12px;
     line-height:2;
 }
 
-
-/* ==============================
-   SLIDE 3 — 15
-============================== */
-
-#slide3{
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-}
-
-.chapter h1{
-    font-family:"Cormorant Garamond",serif;
-    font-size:58px;
-    font-weight:500;
-
-    margin-top:15px;
-}
-
-.chapter p{
-    color:#8799aa;
-
-    font-size:10px;
-    letter-spacing:3px;
-
-    margin-top:15px;
-}
-
-
-/* ==============================
-   SLIDE 4 — MESSAGE
-============================== */
+/* MESSAGE */
 
 .message{
     width:100%;
     max-width:650px;
     margin:auto;
-
-    text-align:left;
 }
 
 .message h2{
-    font-family:"Cormorant Garamond",serif;
-    font-size:45px;
-    font-weight:500;
-
-    margin:12px 0 30px;
+    text-align:left;
 }
 
-.message-content{
-    border-left:1px solid rgba(255,255,255,.14);
-
+.message-text{
+    border-left:1px solid rgba(255,255,255,.16);
     padding-left:20px;
 }
 
-.message-content p{
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:21px;
-    line-height:1.7;
-
+.message-text p{
+    font-family:Georgia,serif;
+    font-size:20px;
     color:#dce3e8;
-
-    margin-bottom:23px;
+    margin-bottom:22px;
 }
 
-.message-content .big{
+.message-text .big{
     font-size:27px;
 }
 
-
-/* ==============================
-   SLIDE 5
-============================== */
-
-#slide5{
-    align-items:center;
-    justify-content:center;
-}
-
-.message-center{
-    width:100%;
-    max-width:600px;
-
-    text-align:center;
-}
-
-.message-center h2{
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:48px;
-    font-weight:500;
-
-    margin:15px 0 25px;
-}
-
-.message-center p{
-    color:#98a8b7;
-
-    font-size:12px;
-    line-height:2;
-}
-
-
-/* ==============================
-   SLIDE 6
-============================== */
-
-#slide6{
-    align-items:center;
-    justify-content:center;
-}
-
-.appreciation{
-    width:100%;
-    max-width:620px;
-
-    text-align:center;
-}
-
-.appreciation h2{
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:48px;
-    font-weight:500;
-
-    margin:15px 0 30px;
-}
-
-.appreciation p{
-    color:#98a8b7;
-
-    font-size:12px;
-    line-height:2;
-}
-
-
-/* ==============================
-   SLIDE 7
-============================== */
-
-#slide7{
-    align-items:center;
-    justify-content:center;
-}
-
-.friendship{
-    max-width:600px;
-    text-align:center;
-}
-
-.friendship h2{
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:48px;
-    font-weight:500;
-
-    margin:15px 0 25px;
-}
-
-.friendship p{
-    color:#98a8b7;
-
-    font-size:12px;
-    line-height:2;
-}
-
-
-/* ==============================
-   SLIDE 8 — 9 FOTO + VIDEO
-============================== */
+/* MEDIA */
 
 #slide8{
     justify-content:center;
@@ -486,230 +231,67 @@ body::after{
     margin:auto;
 }
 
-.media-header{
+.media-head{
     text-align:center;
-    margin-bottom:30px;
+    margin-bottom:28px;
 }
 
-.media-header h2{
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:46px;
-    font-weight:500;
-
-    margin-top:10px;
+.media-head h2{
+    margin:12px 0 8px;
 }
 
-.media-header p{
-    color:#8497aa;
-
-    font-size:10px;
+.media-head p{
+    font-size:9px;
     letter-spacing:2px;
-
-    margin-top:8px;
 }
-
-
-/* FOTO */
 
 .photos{
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
-    gap:14px;
+    gap:12px;
 }
 
 .photo{
-    background:#eef0f1;
-
-    padding:6px 6px 18px;
-
-    box-shadow:
-        0 12px 30px rgba(0,0,0,.35);
-}
-
-.photo:nth-child(1){
-    transform:rotate(-2deg);
-}
-
-.photo:nth-child(2){
-    transform:rotate(1deg);
-}
-
-.photo:nth-child(3){
-    transform:rotate(-1deg);
-}
-
-.photo:nth-child(4){
-    transform:rotate(2deg);
-}
-
-.photo:nth-child(5){
-    transform:rotate(-1deg);
-}
-
-.photo:nth-child(6){
-    transform:rotate(1deg);
-}
-
-.photo:nth-child(7){
-    transform:rotate(-2deg);
-}
-
-.photo:nth-child(8){
-    transform:rotate(2deg);
-}
-
-.photo:nth-child(9){
-    transform:rotate(-1deg);
+    background:#f0f1f2;
+    padding:5px 5px 15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.4);
 }
 
 .photo img{
     width:100%;
-
-    display:block;
-
     aspect-ratio:1/1;
-
     object-fit:cover;
-
-    background:#cbd1d5;
+    display:block;
 }
 
-.photo p{
-    color:#28333b;
-
+.photo-number{
+    color:#29343c;
     text-align:center;
-
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:13px;
-
+    font-family:Georgia,serif;
+    font-size:12px;
     margin-top:5px;
 }
 
-
-/* VIDEO */
-
 .video{
-    margin-top:40px;
+    margin-top:35px;
 }
 
 .video-title{
-    color:#8194a7;
-
     text-align:center;
-
+    color:#8195a8;
     font-size:9px;
-    letter-spacing:4px;
-
+    letter-spacing:3px;
     margin-bottom:12px;
 }
 
 .video video{
     width:100%;
-
     display:block;
-
-    border:1px solid rgba(255,255,255,.13);
-
-    background:#02070c;
+    background:#000;
+    border:1px solid rgba(255,255,255,.15);
 }
 
-
-/* ==============================
-   SLIDE 9
-============================== */
-
-#slide9{
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-}
-
-.random h2{
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:48px;
-    font-weight:500;
-
-    margin:15px 0;
-}
-
-.random p{
-    color:#94a5b4;
-
-    font-size:12px;
-    line-height:2;
-}
-
-
-/* ==============================
-   SLIDE 10
-============================== */
-
-#slide10{
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-}
-
-.wish{
-    max-width:600px;
-}
-
-.wish h2{
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:48px;
-    font-weight:500;
-
-    margin:15px 0 25px;
-}
-
-.wish p{
-    color:#97a8b7;
-
-    font-size:12px;
-    line-height:2;
-}
-
-
-/* ==============================
-   SLIDE 11
-============================== */
-
-#slide11{
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-}
-
-.from-gelsey{
-    max-width:600px;
-}
-
-.from-gelsey h2{
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:58px;
-    font-weight:500;
-
-    margin:15px 0 25px;
-}
-
-.from-gelsey p{
-    color:#97a8b7;
-
-    font-size:12px;
-    line-height:2;
-}
-
-
-/* ==============================
-   SLIDE 12
-============================== */
+/* END */
 
 #slide12{
     align-items:center;
@@ -717,206 +299,122 @@ body::after{
     text-align:center;
 }
 
-.ending-number{
-    font-family:"Cormorant Garamond",serif;
-
+.end-number{
+    font-family:Georgia,serif;
     font-size:130px;
-    line-height:.6;
-
-    color:rgba(255,255,255,.055);
+    color:rgba(255,255,255,.05);
 }
 
-.ending h1{
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:55px;
-    font-weight:500;
-}
-
-.ending p{
-    color:#8799aa;
-
-    font-size:9px;
-    letter-spacing:4px;
-
-    margin-top:15px;
+.end h1{
+    font-family:Georgia,serif;
+    font-size:52px;
+    font-weight:400;
 }
 
 .line{
     width:50px;
     height:1px;
-
     background:rgba(255,255,255,.3);
-
-    margin:30px auto;
+    margin:28px auto;
 }
 
 .signature{
-    color:#718497;
-
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:19px;
+    color:#718699;
+    font-family:Georgia,serif;
+    font-size:18px;
 }
 
-
-/* ==============================
-   NAVIGATION
-============================== */
+/* NAVIGATION */
 
 .navigation{
     position:fixed;
-
     left:0;
     right:0;
     bottom:18px;
-
     display:none;
-
     justify-content:center;
     align-items:center;
-
     gap:12px;
-
-    z-index:50;
+    z-index:20;
 }
 
 .nav{
     border:1px solid rgba(255,255,255,.15);
-
-    background:rgba(5,17,30,.82);
-
-    color:#dce3e8;
-
-    padding:10px 18px;
-
+    background:rgba(5,17,30,.9);
+    color:white;
+    padding:10px 17px;
     border-radius:30px;
-
     font-size:9px;
     letter-spacing:2px;
-
-    cursor:pointer;
-
-    backdrop-filter:blur(10px);
-}
-
-.nav:active{
-    transform:scale(.95);
 }
 
 .counter{
-    color:#62778b;
-
+    color:#667b8f;
     font-size:9px;
-    letter-spacing:2px;
 }
-
-
-/* ==============================
-   MUSIC
-============================== */
 
 .music{
     position:fixed;
-
     top:18px;
     right:18px;
-
     display:none;
-
-    z-index:60;
-
+    z-index:30;
     border:1px solid rgba(255,255,255,.15);
-
-    background:rgba(5,17,30,.8);
-
-    color:#dce3e8;
-
+    background:rgba(5,17,30,.9);
+    color:white;
     padding:10px 15px;
-
     border-radius:30px;
-
     font-size:8px;
     letter-spacing:2px;
-
-    cursor:pointer;
-
-    backdrop-filter:blur(10px);
 }
-
-
-/* ==============================
-   MOBILE
-============================== */
 
 @media(max-width:600px){
 
     .slide{
-        padding-left:20px;
-        padding-right:20px;
+        padding-left:18px;
+        padding-right:18px;
     }
 
-    .number{
-        font-size:100px;
+    .lock h1{
+        font-size:38px;
     }
 
-    .opening h1{
-        font-size:42px;
-    }
-
-    .chapter h1{
-        font-size:48px;
-    }
-
-    .message h2{
-        font-size:39px;
-    }
-
-    .message-content p{
-        font-size:19px;
-    }
-
-    .message-center h2{
-        font-size:41px;
+    h2{
+        font-size:40px;
     }
 
     .photos{
-        gap:8px;
+        gap:7px;
     }
 
     .photo{
-        padding:4px 4px 12px;
+        padding:4px 4px 11px;
     }
 
-    .photo p{
-        font-size:10px;
+    .photo-number{
+        font-size:9px;
     }
 
-    .ending h1{
-        font-size:45px;
+    .message-text p{
+        font-size:18px;
     }
 
+    .end h1{
+        font-size:43px;
+    }
 }
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- ==================================================
-     MUSIC
-================================================== -->
-
+<!-- MUSIK LATAR -->
 <audio id="music" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 
-<!-- ==================================================
-     SLIDE 1
-================================================== -->
+<!-- SLIDE 1 -->
 
 <section class="slide active" id="slide1">
 
@@ -926,7 +424,7 @@ body::after{
         PRIVATE MESSAGE
     </div>
 
-    <div class="lock-symbol">
+    <div class="lock-icon">
         ♢
     </div>
 
@@ -934,7 +432,7 @@ body::after{
         A little secret...
     </h1>
 
-    <div class="lock-description">
+    <div class="description">
         enter the code to continue
     </div>
 
@@ -955,9 +453,7 @@ body::after{
 
     <div class="keypad">
 
-        <button class="key" onclick="pressNumber('1')">
-            1
-        </button>
+        <button class="key" onclick="pressNumber('1')">1</button>
 
         <button class="key" onclick="pressNumber('2')">
             2
@@ -1020,26 +516,22 @@ body::after{
 </section>
 
 
-<!-- ==================================================
-     SLIDE 2
-================================================== -->
+<!-- SLIDE 2 -->
 
 <section class="slide" id="slide2">
 
-<div class="container opening">
+<div class="center">
 
-    <div class="number">
-        01
-    </div>
+    <div class="big-number">01</div>
 
     <div class="kicker">
         FROM GELSEY
     </div>
 
-    <h1>
+    <h2>
         This little website<br>
         is for you.
-    </h1>
+    </h2>
 
     <p>
         Nggak tau kenapa tiba-tiba kepikiran
@@ -1053,28 +545,24 @@ body::after{
 </section>
 
 
-<!-- ==================================================
-     SLIDE 3
-================================================== -->
+<!-- SLIDE 3 -->
 
 <section class="slide" id="slide3">
 
-<div class="container chapter">
+<div class="center">
 
-    <div class="number">
-        02
-    </div>
+    <div class="big-number">02</div>
 
     <div class="kicker">
         OFFICIALLY
     </div>
 
-    <h1>
+    <h2>
         You're 15 now.
-    </h1>
+    </h2>
 
     <p>
-        selamat datang di chapter baru :)
+        Selamat datang di chapter baru :)
     </p>
 
 </div>
@@ -1082,9 +570,7 @@ body::after{
 </section>
 
 
-<!-- ==================================================
-     SLIDE 4
-================================================== -->
+<!-- SLIDE 4 -->
 
 <section class="slide" id="slide4">
 
@@ -1099,7 +585,7 @@ body::after{
         Ninoo! 🥳🎂
     </h2>
 
-    <div class="message-content">
+    <div class="message-text">
 
         <p class="big">
             Selamat ulang tahun yaa.
@@ -1120,8 +606,7 @@ body::after{
         <p>
             Semoga selalu dikasih kesehatan,
             kebahagiaan, rezeki yang cukup,
-            dan orang-orang baik yang selalu
-            ada di sekitar kamu.
+            dan orang-orang baik di sekitar kamu.
         </p>
 
     </div>
@@ -1131,20 +616,18 @@ body::after{
 </section>
 
 
-<!-- ==================================================
-     SLIDE 5
-================================================== -->
+<!-- SLIDE 5 -->
 
 <section class="slide" id="slide5">
 
-<div class="message-center">
+<div class="center">
 
     <div class="kicker">
         CHAPTER 15
     </div>
 
     <h2>
-        More good things
+        More good things<br>
         are coming.
     </h2>
 
@@ -1173,13 +656,11 @@ body::after{
 </section>
 
 
-<!-- ==================================================
-     SLIDE 6
-================================================== -->
+<!-- SLIDE 6 -->
 
 <section class="slide" id="slide6">
 
-<div class="appreciation">
+<div class="center">
 
     <div class="kicker">
         THANK YOU
@@ -1213,13 +694,11 @@ body::after{
 </section>
 
 
-<!-- ==================================================
-     SLIDE 7
-================================================== -->
+<!-- SLIDE 7 -->
 
 <section class="slide" id="slide7">
 
-<div class="friendship">
+<div class="center">
 
     <div class="kicker">
         A LITTLE REMINDER
@@ -1239,8 +718,7 @@ body::after{
 
         Jangan terlalu sering ngerasa kurang
         atau ngebandingin diri kamu sama
-        orang lain, karena setiap orang
-        punya waktunya masing-masing.
+        orang lain.
 
         <br><br>
 
@@ -1255,15 +733,13 @@ body::after{
 </section>
 
 
-<!-- ==================================================
-     SLIDE 8
-================================================== -->
+<!-- SLIDE 8 FOTO + VIDEO -->
 
 <section class="slide" id="slide8">
 
 <div class="media">
 
-    <div class="media-header">
+    <div class="media-head">
 
         <div class="kicker">
             RANDOM MEMORIES
@@ -1274,65 +750,51 @@ body::after{
         </h2>
 
         <p>
-            9 photos · 1 random video
+            7 photos · 1 random video
         </p>
 
     </div>
 
 
-    <!-- 9 FOTO -->
-
     <div class="photos">
 
         <div class="photo">
-            <img src="foto1.jpg" alt="Foto 1">
-            <p>01</p>
+            <img src="motion_photo_446607175286332145.jpg">
+            <div class="photo-number">01</div>
         </div>
 
         <div class="photo">
-            <img src="foto2.jpg" alt="Foto 2">
-            <p>02</p>
+            <img src="Screenshot_20260808-194814.png">
+            <div class="photo-number">02</div>
         </div>
 
         <div class="photo">
-            <img src="foto3.jpg" alt="Foto 3">
-            <p>03</p>
+            <img src="Screenshot_20260731-154657.png">
+            <div class="photo-number">03</div>
         </div>
 
         <div class="photo">
-            <img src="foto4.jpg" alt="Foto 4">
-            <p>04</p>
+            <img src="IMG-20260813-WA0136.jpg">
+            <div class="photo-number">04</div>
         </div>
 
         <div class="photo">
-            <img src="foto5.jpg" alt="Foto 5">
-            <p>05</p>
+            <img src="IMG-20260813-WA0070.jpg">
+            <div class="photo-number">05</div>
         </div>
 
         <div class="photo">
-            <img src="foto6.jpg" alt="Foto 6">
-            <p>06</p>
+            <img src="IMG-20260803-WA0047.jpg">
+            <div class="photo-number">06</div>
         </div>
 
         <div class="photo">
-            <img src="foto7.jpg" alt="Foto 7">
-            <p>07</p>
-        </div>
-
-        <div class="photo">
-            <img src="foto8.jpg" alt="Foto 8">
-            <p>08</p>
-        </div>
-
-        <div class="photo">
-            <img src="foto9.jpg" alt="Foto 9">
-            <p>09</p>
+            <img src="IMG-20260803-WA0026.jpg">
+            <div class="photo-number">07</div>
         </div>
 
     </div>
 
-
-    <!-- 1 VIDEO -->
 
     <div class="video">
 
@@ -1342,7 +804,9 @@ body::after{
 
         <video controls playsinline>
 
-            <source src="video.mp4" type="video/mp4">
+            <source
+                src="VID-20260606-WA0006.mp4"
+                type="video/mp4">
 
             Browser kamu tidak mendukung video.
 
@@ -1355,13 +819,11 @@ body::after{
 </section>
 
 
-<!-- ==================================================
-     SLIDE 9
-================================================== -->
+<!-- SLIDE 9 -->
 
 <section class="slide" id="slide9">
 
-<div class="random">
+<div class="center">
 
     <div class="kicker">
         BTW
@@ -1382,13 +844,11 @@ body::after{
 </section>
 
 
-<!-- ==================================================
-     SLIDE 10
-================================================== -->
+<!-- SLIDE 10 -->
 
 <section class="slide" id="slide10">
 
-<div class="wish">
+<div class="center">
 
     <div class="kicker">
         ONE LAST WISH
@@ -1409,9 +869,8 @@ body::after{
         <br><br>
 
         Kalau nanti ada masa-masa yang berat,
-        semoga kamu selalu inget kalau kamu
-        nggak harus menghadapi semuanya
-        sendirian.
+        semoga kamu selalu punya orang-orang
+        yang bisa menemani dan mendukung kamu.
 
         <br><br>
 
@@ -1421,9 +880,8 @@ body::after{
 
         <br><br>
 
-        Semoga semua doa yang belum sempat
-        kamu ceritakan ke siapa-siapa bisa
-        menemukan jalannya masing-masing
+        Semoga semua doa yang kamu punya
+        bisa menemukan jalannya masing-masing
         untuk terkabul.
 
     </p>
@@ -1433,13 +891,11 @@ body::after{
 </section>
 
 
-<!-- ==================================================
-     SLIDE 11
-================================================== -->
+<!-- SLIDE 11 -->
 
 <section class="slide" id="slide11">
 
-<div class="from-gelsey">
+<div class="center">
 
     <div class="kicker">
         A MESSAGE FROM
@@ -1478,15 +934,13 @@ body::after{
 </section>
 
 
-<!-- ==================================================
-     SLIDE 12
-================================================== -->
+<!-- SLIDE 12 -->
 
 <section class="slide" id="slide12">
 
-<div class="ending">
+<div class="end">
 
-    <div class="ending-number">
+    <div class="end-number">
         15
     </div>
 
@@ -1516,9 +970,7 @@ body::after{
 </section>
 
 
-<!-- ==================================================
-     NAVIGATION
-================================================== -->
+<!-- NAVIGASI -->
 
 <div class="navigation" id="navigation">
 
@@ -1537,7 +989,7 @@ body::after{
 </div>
 
 
-<!-- MUSIC -->
+<!-- TOMBOL MUSIK -->
 
 <button class="music" id="musicButton" onclick="toggleMusic()">
     ♫ MUSIC
@@ -1545,10 +997,6 @@ body::after{
 
 
 <script>
-
-/* ==============================
-   PASSWORD
-============================== */
 
 const SECRET_CODE = "69692011";
 
@@ -1618,7 +1066,7 @@ function checkCode(){
     if(enteredCode === SECRET_CODE){
 
         errorText.textContent =
-            "access granted ♡";
+            "access granted";
 
         startMusic();
 
@@ -1631,13 +1079,22 @@ function checkCode(){
     }else{
 
         errorText.textContent =
-            "wrong code, try again ♡";
+            "wrong code, try again";
 
-        passcode.classList.add("shake");
+        passcode.animate(
+            [
+                {transform:"translateX(0)"},
+                {transform:"translateX(-8px)"},
+                {transform:"translateX(8px)"},
+                {transform:"translateX(-5px)"},
+                {transform:"translateX(0)"}
+            ],
+            {
+                duration:400
+            }
+        );
 
         setTimeout(()=>{
-
-            passcode.classList.remove("shake");
 
             enteredCode = "";
 
@@ -1649,10 +1106,6 @@ function checkCode(){
 
 }
 
-
-/* ==============================
-   SLIDE SYSTEM
-============================== */
 
 let currentSlide = 0;
 
@@ -1708,7 +1161,8 @@ function updateInterface(){
 
     counter.textContent =
         String(currentSlide + 1).padStart(2,"0")
-        + " / 12";
+        + " / "
+        + slides.length;
 
 }
 
@@ -1735,9 +1189,7 @@ function previousSlide(){
 }
 
 
-/* ==============================
-   MUSIC
-============================== */
+/* MUSIK */
 
 const music =
     document.getElementById("music");
@@ -1785,9 +1237,7 @@ function toggleMusic(){
 }
 
 
-/* ==============================
-   KEYBOARD
-============================== */
+/* KEYBOARD */
 
 document.addEventListener("keydown",(event)=>{
 
@@ -1810,9 +1260,7 @@ document.addEventListener("keydown",(event)=>{
 });
 
 
-/* ==============================
-   SWIPE HP
-============================== */
+/* SWIPE HP */
 
 let startX = 0;
 
@@ -1852,11 +1300,9 @@ document.addEventListener("touchend",(event)=>{
 });
 
 
-/* START */
-
 showSlide(0);
 
 </script>
 
 </body>
-  </html>
+   </html>
