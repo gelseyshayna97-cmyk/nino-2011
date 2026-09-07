@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Happy 15th Birthday Nino</title>
+<title>Happy Birthday Nino</title>
 
 <style>
 
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 html,body{
@@ -26,6 +26,8 @@ body{
     overflow:hidden;
 }
 
+/* BACKGROUND */
+
 body::before{
     content:"";
     position:fixed;
@@ -35,13 +37,13 @@ body::before{
     background:
     radial-gradient(
         circle at 50% 20%,
-        rgba(35,78,113,.45),
-        transparent 43%
+        rgba(39,82,120,.45),
+        transparent 45%
     ),
     radial-gradient(
-        circle at 10% 90%,
-        rgba(14,45,76,.35),
-        transparent 38%
+        circle at 0% 100%,
+        rgba(20,52,85,.35),
+        transparent 40%
     );
 }
 
@@ -63,29 +65,30 @@ body::after{
 }
 
 
-/* SLIDE */
+/* SEMUA HALAMAN */
 
-.slide{
+.page{
     position:fixed;
     inset:0;
+
     display:none;
 
     overflow-y:auto;
 
-    padding:45px 22px 100px;
+    padding:40px 20px 100px;
 }
 
-.slide.active{
+.page.active{
     display:flex;
 
-    animation:fade .7s ease;
+    animation:appear .7s ease;
 }
 
-@keyframes fade{
+@keyframes appear{
 
     from{
         opacity:0;
-        transform:translateY(20px);
+        transform:translateY(18px);
     }
 
     to{
@@ -96,10 +99,10 @@ body::after{
 }
 
 
-/* TEXT */
+/* TEKS */
 
-.kicker{
-    color:#8298aa;
+.small{
+    color:#8398aa;
     font-size:9px;
     letter-spacing:5px;
     text-transform:uppercase;
@@ -112,82 +115,77 @@ body::after{
     text-align:center;
 }
 
-.number{
+.big-number{
     font-family:Georgia,serif;
-    font-size:115px;
+    font-size:110px;
     line-height:.6;
     color:rgba(255,255,255,.05);
 }
 
-h2{
+h1,h2{
     font-family:Georgia,serif;
-    font-size:48px;
     font-weight:400;
-    margin:15px 0 28px;
 }
 
 p{
-    color:#98a9b8;
+    color:#9aaab9;
     font-size:12px;
     line-height:2;
 }
 
 
-/* PASSWORD */
+/* HALAMAN KODE */
 
-#slide1{
+#page1{
     align-items:center;
     justify-content:center;
     text-align:center;
 }
 
-.lock{
+.code-box{
     width:100%;
     max-width:380px;
 }
 
-.lock-icon{
-    font-size:30px;
+.symbol{
+    font-size:28px;
     margin:25px 0;
 }
 
-.lock h1{
-    font-family:Georgia,serif;
-    font-size:43px;
-    font-weight:400;
+.code-box h1{
+    font-size:42px;
     margin-bottom:12px;
 }
 
-.description{
-    color:#8fa1b1;
+.subtitle{
+    color:#899baa;
     font-size:11px;
     margin-bottom:28px;
 }
 
-.passcode{
+.dots{
     display:flex;
     justify-content:center;
     gap:9px;
+    margin-bottom:10px;
 }
 
 .dot{
     width:10px;
     height:10px;
 
-    border:1px solid #8296a9;
+    border:1px solid #8195a8;
     border-radius:50%;
 }
 
-.dot.active{
+.dot.filled{
     background:white;
     border-color:white;
 }
 
-.error{
+.status{
     height:22px;
-    margin-top:10px;
-
-    color:#b9a1a1;
+    color:#aab7c2;
     font-size:10px;
 }
 
@@ -202,52 +200,55 @@ p{
     width:70px;
     height:58px;
 
-    border-radius:15px;
-
     border:1px solid rgba(255,255,255,.14);
+    border-radius:15px;
 
     background:rgba(255,255,255,.05);
 
     color:white;
-
     font-size:18px;
 
     cursor:pointer;
-
-    backdrop-filter:blur(10px);
 }
 
 .key:active{
-    transform:scale(.94);
+    transform:scale(.93);
 }
 
 .key span{
     display:block;
-
-    color:#657a8e;
-
+    color:#65798c;
     font-size:7px;
-
     letter-spacing:1px;
 }
 
-.empty{
-    background:transparent;
+.blank{
     border:none;
+    background:transparent;
 }
 
-.hint{
-    margin-top:25px;
-
-    color:#617589;
-
+.code-hint{
+    margin-top:24px;
+    color:#5e7387;
     font-size:8px;
-
     letter-spacing:3px;
 }
 
 
-/* MESSAGE */
+/* HALAMAN BIASA */
+
+.page-title{
+    font-size:48px;
+    margin:15px 0 28px;
+}
+
+.page-text{
+    max-width:580px;
+    margin:auto;
+}
+
+
+/* HALAMAN UCAPAN */
 
 .message{
     width:100%;
@@ -255,35 +256,28 @@ p{
     margin:auto;
 }
 
-.message h2{
+.message .page-title{
     text-align:left;
 }
 
-.message-text{
+.message-body{
     border-left:1px solid rgba(255,255,255,.15);
     padding-left:20px;
 }
 
-.message-text p{
+.message-body p{
     font-family:Georgia,serif;
-
     font-size:20px;
-
     color:#dce3e8;
-
     margin-bottom:22px;
 }
 
-.message-text .big{
+.message-body .opening{
     font-size:27px;
 }
 
 
-/* FOTO + VIDEO */
-
-#slide8{
-    justify-content:center;
-}
+/* FOTO */
 
 .media{
     width:100%;
@@ -291,133 +285,106 @@ p{
     margin:auto;
 }
 
-.media-head{
+.media-heading{
     text-align:center;
     margin-bottom:30px;
 }
 
-.media-head h2{
-    margin:12px 0 8px;
+.media-heading h2{
+    font-size:46px;
+    margin:12px 0;
 }
 
-.media-head p{
+.media-heading p{
     font-size:9px;
     letter-spacing:2px;
 }
 
-.photos{
+.gallery{
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
-    gap:12px;
+    gap:10px;
 }
 
-.photo{
+.card{
     background:#f0f1f2;
-
-    padding:5px 5px 15px;
+    padding:5px 5px 13px;
 
     box-shadow:
-    0 12px 28px rgba(0,0,0,.4);
+    0 10px 25px rgba(0,0,0,.4);
 }
 
-.photo img{
+.card img{
     width:100%;
-
     aspect-ratio:1/1;
-
     object-fit:cover;
-
     display:block;
 }
 
-.photo-number{
-    color:#26343e;
-
+.card-number{
+    color:#27343d;
     text-align:center;
-
     font-family:Georgia,serif;
-
-    font-size:12px;
-
+    font-size:11px;
     margin-top:5px;
 }
 
-.video{
-    margin-top:38px;
+.video-box{
+    margin-top:35px;
 }
 
-.video-title{
-    color:#8195a8;
-
+.video-label{
     text-align:center;
-
+    color:#8195a8;
     font-size:9px;
-
     letter-spacing:4px;
-
     margin-bottom:12px;
 }
 
-.video video{
+.video-box video{
     width:100%;
-
     display:block;
-
     background:#000;
-
     border:1px solid rgba(255,255,255,.15);
 }
 
 
-/* END */
+/* HALAMAN TERAKHIR */
 
-#slide12{
+#page12{
     align-items:center;
     justify-content:center;
     text-align:center;
 }
 
-.end-number{
+.final-number{
     font-family:Georgia,serif;
-
     font-size:130px;
-
     color:rgba(255,255,255,.05);
 }
 
-.end h1{
-    font-family:Georgia,serif;
-
-    font-size:53px;
-
-    font-weight:400;
+.final h1{
+    font-size:52px;
 }
 
 .line{
     width:50px;
     height:1px;
-
     background:rgba(255,255,255,.3);
-
     margin:28px auto;
 }
 
 .signature{
-    color:#718699;
-
+    color:#718598;
     font-family:Georgia,serif;
-
     font-size:18px;
 }
 
 
-/* NAVIGASI */
+/* TOMBOL */
 
-.navigation{
+.controls{
     position:fixed;
-
     left:0;
     right:0;
     bottom:18px;
@@ -426,44 +393,37 @@ p{
 
     justify-content:center;
     align-items:center;
-
     gap:12px;
 
     z-index:50;
 }
 
-.nav{
+.control-button{
     border:1px solid rgba(255,255,255,.15);
-
     background:rgba(5,17,30,.9);
 
     color:#dce3e8;
 
     padding:10px 18px;
-
     border-radius:30px;
 
     font-size:9px;
-
     letter-spacing:2px;
 
     cursor:pointer;
 }
 
-.counter{
+.page-count{
     color:#64798d;
-
     font-size:9px;
-
     letter-spacing:2px;
 }
 
 
-/* MUSIC */
+/* TOMBOL MUSIK */
 
-.music{
+.music-button{
     position:fixed;
-
     top:18px;
     right:18px;
 
@@ -472,17 +432,14 @@ p{
     z-index:60;
 
     border:1px solid rgba(255,255,255,.15);
-
     background:rgba(5,17,30,.9);
 
     color:#dce3e8;
 
     padding:10px 15px;
-
     border-radius:30px;
 
     font-size:8px;
-
     letter-spacing:2px;
 
     cursor:pointer;
@@ -493,41 +450,40 @@ p{
 
 @media(max-width:600px){
 
-    .slide{
-        padding-left:18px;
-        padding-right:18px;
+    .page{
+        padding:35px 18px 100px;
     }
 
-    .lock h1{
-        font-size:38px;
+    .code-box h1{
+        font-size:37px;
     }
 
-    h2{
-        font-size:41px;
+    .big-number{
+        font-size:95px;
     }
 
-    .number{
-        font-size:100px;
+    .page-title{
+        font-size:40px;
     }
 
-    .message-text p{
+    .message-body p{
         font-size:18px;
     }
 
-    .photos{
+    .gallery{
         gap:7px;
     }
 
-    .photo{
-        padding:4px 4px 11px;
+    .card{
+        padding:4px 4px 10px;
     }
 
-    .photo-number{
+    .card-number{
         font-size:9px;
     }
 
-    .end h1{
-        font-size:44px;
+    .final h1{
+        font-size:43px;
     }
 
 }
@@ -535,29 +491,41 @@ p{
 </style>
 </head>
 
+
 <body>
 
 
-<!-- BACKSOUND -->
+<!-- =========================
+     MUSIK LATAR
+========================= -->
 
-<audio id="music" loop preload="auto">
+<video
+    id="backgroundMusic"
+    loop
+    playsinline
+    preload="auto"
+    style="display:none;">
+
     <source
         src="b087f4e37be1250c297e74d9b102e565.mp4"
-        type="audio/mp4">
-</audio>
+        type="video/mp4">
+
+</video>
 
 
-<!-- SLIDE 1 -->
+<!-- =========================
+     HALAMAN 1
+========================= -->
 
-<section class="slide active" id="slide1">
+<section class="page active" id="page1">
 
-<div class="lock">
+<div class="code-box">
 
-    <div class="kicker">
+    <div class="small">
         PRIVATE MESSAGE
     </div>
 
-    <div class="lock-icon">
+    <div class="symbol">
         ♢
     </div>
 
@@ -565,11 +533,11 @@ p{
         A little secret...
     </h1>
 
-    <div class="description">
+    <div class="subtitle">
         enter the code to continue
     </div>
 
-    <div class="passcode" id="passcode">
+    <div class="dots">
 
         <div class="dot"></div>
         <div class="dot"></div>
@@ -582,67 +550,67 @@ p{
 
     </div>
 
-    <div class="error" id="error"></div>
+    <div class="status" id="status"></div>
 
     <div class="keypad">
 
-        <button class="key" onclick="pressNumber('1')">
+        <button class="key" onclick="addNumber('1')">
             1
         </button>
 
-        <button class="key" onclick="pressNumber('2')">
+        <button class="key" onclick="addNumber('2')">
             2
             <span>ABC</span>
         </button>
 
-        <button class="key" onclick="pressNumber('3')">
+        <button class="key" onclick="addNumber('3')">
             3
             <span>DEF</span>
         </button>
 
-        <button class="key" onclick="pressNumber('4')">
+        <button class="key" onclick="addNumber('4')">
             4
             <span>GHI</span>
         </button>
 
-        <button class="key" onclick="pressNumber('5')">
+        <button class="key" onclick="addNumber('5')">
             5
             <span>JKL</span>
         </button>
 
-        <button class="key" onclick="pressNumber('6')">
+        <button class="key" onclick="addNumber('6')">
             6
             <span>MNO</span>
         </button>
 
-        <button class="key" onclick="pressNumber('7')">
+        <button class="key" onclick="addNumber('7')">
             7
             <span>PQRS</span>
         </button>
 
-        <button class="key" onclick="pressNumber('8')">
+        <button class="key" onclick="addNumber('8')">
             8
             <span>TUV</span>
         </button>
 
-        <button class="key" onclick="pressNumber('9')">
+        <button class="key" onclick="addNumber('9')">
             9
             <span>WXYZ</span>
         </button>
 
-        <button class="key empty"></button>
+        <button class="key blank"></button>
 
-        <button class="key" onclick="pressNumber('0')">
+        <button class="key" onclick="addNumber('0')">
             0
         </button>
 
-        <button class="key" onclick="deleteNumber()">
+        <button class="key" onclick="removeNumber()">
             ←
         </button>
 
     </div>
 
-    <div class="hint">
+    <div class="code-hint">
         8 DIGIT ACCESS
     </div>
 
@@ -651,30 +619,34 @@ p{
 </section>
 
 
-<!-- SLIDE 2 -->
+<!-- =========================
+     HALAMAN 2
+========================= -->
 
-<section class="slide" id="slide2">
+<section class="page" id="page2">
 
 <div class="center">
 
-    <div class="number">
+    <div class="big-number">
         01
     </div>
 
-    <div class="kicker">
+    <div class="small">
         FROM GELSEY
     </div>
 
-    <h2>
+    <h2 class="page-title">
         This little website<br>
         is for you.
     </h2>
 
-    <p>
+    <p class="page-text">
+
         Nggak tau kenapa tiba-tiba kepikiran
         bikin sesuatu kayak gini. Tapi karena
         kamu ulang tahun, jadi sekalian aja.
         Semoga kamu suka.
+
     </p>
 
 </div>
@@ -682,21 +654,23 @@ p{
 </section>
 
 
-<!-- SLIDE 3 -->
+<!-- =========================
+     HALAMAN 3
+========================= -->
 
-<section class="slide" id="slide3">
+<section class="page" id="page3">
 
 <div class="center">
 
-    <div class="number">
+    <div class="big-number">
         02
     </div>
 
-    <div class="kicker">
+    <div class="small">
         OFFICIALLY
     </div>
 
-    <h2>
+    <h2 class="page-title">
         You're 15 now.
     </h2>
 
@@ -709,24 +683,26 @@ p{
 </section>
 
 
-<!-- SLIDE 4 -->
+<!-- =========================
+     HALAMAN 4
+========================= -->
 
-<section class="slide" id="slide4">
+<section class="page" id="page4">
 
 <div class="message">
 
-    <div class="kicker">
+    <div class="small">
         FIRST OF ALL
     </div>
 
-    <h2>
+    <h2 class="page-title">
         Happy birthday,<br>
         Ninoo! 🥳🎂
     </h2>
 
-    <div class="message-text">
+    <div class="message-body">
 
-        <p class="big">
+        <p class="opening">
             Selamat ulang tahun yaa.
         </p>
 
@@ -755,22 +731,24 @@ p{
 </section>
 
 
-<!-- SLIDE 5 -->
+<!-- =========================
+     HALAMAN 5
+========================= -->
 
-<section class="slide" id="slide5">
+<section class="page" id="page5">
 
 <div class="center">
 
-    <div class="kicker">
+    <div class="small">
         CHAPTER 15
     </div>
 
-    <h2>
+    <h2 class="page-title">
         More good things<br>
         are coming.
     </h2>
 
-    <p>
+    <p class="page-text">
 
         Uwihhh sekarang umur kamu nambah lagi.
 
@@ -795,21 +773,23 @@ p{
 </section>
 
 
-<!-- SLIDE 6 -->
+<!-- =========================
+     HALAMAN 6
+========================= -->
 
-<section class="slide" id="slide6">
+<section class="page" id="page6">
 
 <div class="center">
 
-    <div class="kicker">
+    <div class="small">
         THANK YOU
     </div>
 
-    <h2>
+    <h2 class="page-title">
         For the memories.
     </h2>
 
-    <p>
+    <p class="page-text">
 
         Makasih juga karena selama ini udah
         jadi teman yang baik.
@@ -833,21 +813,23 @@ p{
 </section>
 
 
-<!-- SLIDE 7 -->
+<!-- =========================
+     HALAMAN 7
+========================= -->
 
-<section class="slide" id="slide7">
+<section class="page" id="page7">
 
 <div class="center">
 
-    <div class="kicker">
+    <div class="small">
         A LITTLE REMINDER
     </div>
 
-    <h2>
+    <h2 class="page-title">
         Keep being yourself.
     </h2>
 
-    <p>
+    <p class="page-text">
 
         Aku juga berharap di umur yang baru
         ini kamu bisa lebih percaya sama
@@ -872,15 +854,18 @@ p{
 </section>
 
 
-<!-- SLIDE 8 -->
+<!-- =========================
+     HALAMAN 8
+     FOTO + VIDEO
+========================= -->
 
-<section class="slide" id="slide8">
+<section class="page" id="page8">
 
 <div class="media">
 
-    <div class="media-head">
+    <div class="media-heading">
 
-        <div class="kicker">
+        <div class="small">
             RANDOM MEMORIES
         </div>
 
@@ -895,59 +880,116 @@ p{
     </div>
 
 
-    <div class="photos">
+    <div class="gallery">
 
-        <div class="photo">
-            <img src="motion_photo_446607175286332145.jpg">
-            <div class="photo-number">01</div>
+        <div class="card">
+
+            <img
+                src="motion_photo_446607175286332145.jpg"
+                alt="Foto 1">
+
+            <div class="card-number">
+                01
+            </div>
+
         </div>
 
-        <div class="photo">
-            <img src="Screenshot_20260808-194814.png">
-            <div class="photo-number">02</div>
+
+        <div class="card">
+
+            <img
+                src="Screenshot_20260808-194814.png"
+                alt="Foto 2">
+
+            <div class="card-number">
+                02
+            </div>
+
         </div>
 
-        <div class="photo">
-            <img src="Screenshot_20260731-154657.png">
-            <div class="photo-number">03</div>
+
+        <div class="card">
+
+            <img
+                src="Screenshot_20260731-154657.png"
+                alt="Foto 3">
+
+            <div class="card-number">
+                03
+            </div>
+
         </div>
 
-        <div class="photo">
-            <img src="IMG-20260813-WA0136.jpg">
-            <div class="photo-number">04</div>
+
+        <div class="card">
+
+            <img
+                src="IMG-20260813-WA0136.jpg"
+                alt="Foto 4">
+
+            <div class="card-number">
+                04
+            </div>
+
         </div>
 
-        <div class="photo">
-            <img src="IMG-20260813-WA0070.jpg">
-            <div class="photo-number">05</div>
+
+        <div class="card">
+
+            <img
+                src="IMG-20260813-WA0070.jpg"
+                alt="Foto 5">
+
+            <div class="card-number">
+                05
+            </div>
+
         </div>
 
-        <div class="photo">
-            <img src="IMG-20260803-WA0047.jpg">
-            <div class="photo-number">06</div>
+
+        <div class="card">
+
+            <img
+                src="IMG-20260803-WA0047.jpg"
+                alt="Foto 6">
+
+            <div class="card-number">
+                06
+            </div>
+
         </div>
 
-        <div class="photo">
-            <img src="IMG-20260803-WA0026.jpg">
-            <div class="photo-number">07</div>
+
+        <div class="card">
+
+            <img
+                src="IMG-20260803-WA0026.jpg"
+                alt="Foto 7">
+
+            <div class="card-number">
+                07
+            </div>
+
         </div>
 
     </div>
 
 
-    <div class="video">
+    <div class="video-box">
 
-        <div class="video-title">
+        <div class="video-label">
             ONE RANDOM VIDEO
         </div>
 
-        <video controls playsinline>
+        <video
+            controls
+            playsinline>
 
             <source
                 src="ly_7678964586480979220_20260908001623.mp4"
                 type="video/mp4">
 
-            Browser kamu tidak mendukung video.
+            Video tidak dapat diputar.
 
         </video>
 
@@ -958,17 +1000,19 @@ p{
 </section>
 
 
-<!-- SLIDE 9 -->
+<!-- =========================
+     HALAMAN 9
+========================= -->
 
-<section class="slide" id="slide9">
+<section class="page" id="page9">
 
 <div class="center">
 
-    <div class="kicker">
+    <div class="small">
         BTW
     </div>
 
-    <h2>
+    <h2 class="page-title">
         Yes, the video is random.
     </h2>
 
@@ -983,21 +1027,23 @@ p{
 </section>
 
 
-<!-- SLIDE 10 -->
+<!-- =========================
+     HALAMAN 10
+========================= -->
 
-<section class="slide" id="slide10">
+<section class="page" id="page10">
 
 <div class="center">
 
-    <div class="kicker">
+    <div class="small">
         ONE LAST WISH
     </div>
 
-    <h2>
+    <h2 class="page-title">
         For your 15th year...
     </h2>
 
-    <p>
+    <p class="page-text">
 
         Semoga tahun ini membawa lebih banyak
         tawa daripada air mata, lebih banyak
@@ -1030,21 +1076,23 @@ p{
 </section>
 
 
-<!-- SLIDE 11 -->
+<!-- =========================
+     HALAMAN 11
+========================= -->
 
-<section class="slide" id="slide11">
+<section class="page" id="page11">
 
 <div class="center">
 
-    <div class="kicker">
+    <div class="small">
         A MESSAGE FROM
     </div>
 
-    <h2>
+    <h2 class="page-title">
         Gelsey.
     </h2>
 
-    <p>
+    <p class="page-text">
 
         Pokoknya sekali lagi,
         happy birthday, Nino! 🎉
@@ -1073,17 +1121,19 @@ p{
 </section>
 
 
-<!-- SLIDE 12 -->
+<!-- =========================
+     HALAMAN 12
+========================= -->
 
-<section class="slide" id="slide12">
+<section class="page" id="page12">
 
-<div class="center end">
+<div class="center final">
 
-    <div class="end-number">
+    <div class="final-number">
         15
     </div>
 
-    <div class="kicker">
+    <div class="small">
         THE END
     </div>
 
@@ -1109,20 +1159,36 @@ p{
 </section>
 
 
-<!-- NAVIGASI -->
+<!-- =========================
+     KONTROL
+========================= -->
 
-<div class="navigation" id="navigation">
+<div
+    class="controls"
+    id="controls">
 
-    <button class="nav" onclick="previousSlide()">
+    <button
+        class="control-button"
+        onclick="previousPage()">
+
         ← BACK
+
     </button>
 
-    <div class="counter" id="counter">
+    <div
+        class="page-count"
+        id="pageCount">
+
         01 / 12
+
     </div>
 
-    <button class="nav" onclick="nextSlide()">
+    <button
+        class="control-button"
+        onclick="nextPage()">
+
         NEXT →
+
     </button>
 
 </div>
@@ -1131,7 +1197,7 @@ p{
 <!-- TOMBOL MUSIK -->
 
 <button
-    class="music"
+    class="music-button"
     id="musicButton"
     onclick="toggleMusic()">
 
@@ -1142,6 +1208,10 @@ p{
 
 <script>
 
+/* =========================
+   KODE RAHASIA
+========================= */
+
 const SECRET_CODE = "69692011";
 
 let enteredCode = "";
@@ -1150,14 +1220,30 @@ let enteredCode = "";
 const dots =
     document.querySelectorAll(".dot");
 
-const errorText =
-    document.getElementById("error");
-
-const passcode =
-    document.getElementById("passcode");
+const statusText =
+    document.getElementById("status");
 
 
-function pressNumber(number){
+function updateDots(){
+
+    dots.forEach(function(dot,index){
+
+        if(index < enteredCode.length){
+
+            dot.classList.add("filled");
+
+        }else{
+
+            dot.classList.remove("filled");
+
+        }
+
+    });
+
+}
+
+
+function addNumber(number){
 
     if(enteredCode.length >= 8){
         return;
@@ -1169,40 +1255,21 @@ function pressNumber(number){
 
     if(enteredCode.length === 8){
 
-        setTimeout(checkCode,250);
+        setTimeout(checkCode,300);
 
     }
 
 }
 
 
-function deleteNumber(){
+function removeNumber(){
 
     enteredCode =
         enteredCode.slice(0,-1);
 
     updateDots();
 
-    errorText.textContent = "";
-
-}
-
-
-function updateDots(){
-
-    dots.forEach((dot,index)=>{
-
-        if(index < enteredCode.length){
-
-            dot.classList.add("active");
-
-        }else{
-
-            dot.classList.remove("active");
-
-        }
-
-    });
+    statusText.textContent = "";
 
 }
 
@@ -1211,156 +1278,146 @@ function checkCode(){
 
     if(enteredCode === SECRET_CODE){
 
-        errorText.textContent =
+        statusText.textContent =
             "access granted";
 
-        startMusic();
+        playMusic();
 
-        setTimeout(()=>{
+        setTimeout(function(){
 
-            showSlide(1);
+            showPage(1);
 
         },700);
 
     }else{
 
-        errorText.textContent =
+        statusText.textContent =
             "wrong code, try again";
 
-        passcode.animate(
-            [
-                {transform:"translateX(0)"},
-                {transform:"translateX(-8px)"},
-                {transform:"translateX(8px)"},
-                {transform:"translateX(-5px)"},
-                {transform:"translateX(0)"}
-            ],
-            {
-                duration:400
-            }
-        );
-
-        setTimeout(()=>{
+        setTimeout(function(){
 
             enteredCode = "";
 
             updateDots();
 
-        },500);
+            statusText.textContent = "";
+
+        },700);
 
     }
 
 }
 
 
-/* SLIDE */
+/* =========================
+   HALAMAN
+========================= */
 
-let currentSlide = 0;
+const pages =
+    document.querySelectorAll(".page");
 
-const slides =
-    document.querySelectorAll(".slide");
+let currentPage = 0;
 
-const navigation =
-    document.getElementById("navigation");
+
+const controls =
+    document.getElementById("controls");
 
 const musicButton =
     document.getElementById("musicButton");
 
-const counter =
-    document.getElementById("counter");
+const pageCount =
+    document.getElementById("pageCount");
 
 
-function showSlide(index){
+function showPage(number){
 
     if(
-        index < 0 ||
-        index >= slides.length
+        number < 0 ||
+        number >= pages.length
     ){
+
         return;
+
     }
 
-    slides.forEach(slide=>{
 
-        slide.classList.remove("active");
+    pages.forEach(function(page){
+
+        page.classList.remove("active");
 
     });
 
-    slides[index].classList.add("active");
 
-    currentSlide = index;
+    pages[number].classList.add("active");
 
-    updateInterface();
-
-}
+    currentPage = number;
 
 
-function updateInterface(){
+    if(currentPage === 0){
 
-    if(currentSlide === 0){
-
-        navigation.style.display = "none";
+        controls.style.display = "none";
 
         musicButton.style.display = "none";
 
     }else{
 
-        navigation.style.display = "flex";
+        controls.style.display = "flex";
 
         musicButton.style.display = "block";
 
     }
 
-    counter.textContent =
-        String(currentSlide + 1).padStart(2,"0")
+
+    pageCount.textContent =
+        String(currentPage + 1).padStart(2,"0")
         + " / "
-        + slides.length;
+        + pages.length;
 
 }
 
 
-function nextSlide(){
+function nextPage(){
 
-    if(
-        currentSlide <
-        slides.length - 1
-    ){
+    if(currentPage < pages.length - 1){
 
-        showSlide(currentSlide + 1);
+        showPage(currentPage + 1);
 
     }
 
 }
 
 
-function previousSlide(){
+function previousPage(){
 
-    if(currentSlide > 1){
+    if(currentPage > 1){
 
-        showSlide(currentSlide - 1);
+        showPage(currentPage - 1);
 
     }
 
 }
 
 
-/* MUSIK */
+/* =========================
+   MUSIK LATAR
+========================= */
 
-const music =
-    document.getElementById("music");
+const backgroundMusic =
+    document.getElementById("backgroundMusic");
 
 
-function startMusic(){
+function playMusic(){
 
-    music.volume = 0.45;
+    backgroundMusic.volume = 0.35;
 
-    music.play()
-    .then(()=>{
+    backgroundMusic.play()
+    .then(function(){
 
         musicButton.textContent =
             "♫ MUSIC ON";
 
     })
-    .catch(()=>{
+    .catch(function(){
 
         musicButton.textContent =
             "♫ PLAY MUSIC";
@@ -1372,16 +1429,16 @@ function startMusic(){
 
 function toggleMusic(){
 
-    if(music.paused){
+    if(backgroundMusic.paused){
 
-        music.play();
+        backgroundMusic.play();
 
         musicButton.textContent =
             "♫ MUSIC ON";
 
     }else{
 
-        music.pause();
+        backgroundMusic.pause();
 
         musicButton.textContent =
             "♫ MUSIC OFF";
@@ -1391,25 +1448,29 @@ function toggleMusic(){
 }
 
 
-/* KEYBOARD */
+/* =========================
+   TOMBOL KEYBOARD
+========================= */
 
 document.addEventListener(
     "keydown",
-    (event)=>{
+    function(event){
 
-        if(currentSlide !== 0){
+        if(currentPage !== 0){
             return;
         }
 
+
         if(/^[0-9]$/.test(event.key)){
 
-            pressNumber(event.key);
+            addNumber(event.key);
 
         }
 
+
         if(event.key === "Backspace"){
 
-            deleteNumber();
+            removeNumber();
 
         }
 
@@ -1417,17 +1478,19 @@ document.addEventListener(
 );
 
 
-/* SWIPE HP */
+/* =========================
+   GESER HP
+========================= */
 
-let startX = 0;
-let endX = 0;
+let touchStart = 0;
+let touchEnd = 0;
 
 
 document.addEventListener(
     "touchstart",
-    (event)=>{
+    function(event){
 
-        startX =
+        touchStart =
             event.changedTouches[0].screenX;
 
     }
@@ -1436,25 +1499,28 @@ document.addEventListener(
 
 document.addEventListener(
     "touchend",
-    (event)=>{
+    function(event){
 
-        endX =
+        touchEnd =
             event.changedTouches[0].screenX;
 
+
         const distance =
-            endX - startX;
+            touchEnd - touchStart;
+
 
         if(Math.abs(distance) < 60){
             return;
         }
 
+
         if(distance < 0){
 
-            nextSlide();
+            nextPage();
 
         }else{
 
-            previousSlide();
+            previousPage();
 
         }
 
@@ -1462,7 +1528,9 @@ document.addEventListener(
 );
 
 
-showSlide(0);
+/* MULAI */
+
+showPage(0);
 
 </script>
 
