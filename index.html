@@ -4,499 +4,449 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Happy Birthday Nino</title>
+<title>Birthday Nino</title>
 
 <style>
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html,body{
-    width:100%;
-    height:100%;
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #020817;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
-    background:#061321;
-    color:#f5f7fa;
-    font-family:Arial,sans-serif;
-    overflow:hidden;
+body {
+    position: relative;
 }
 
-/* BACKGROUND */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-2;
-
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -3;
     background:
-    radial-gradient(
-        circle at 50% 20%,
-        rgba(39,82,120,.45),
-        transparent 45%
-    ),
-    radial-gradient(
-        circle at 0% 100%,
-        rgba(20,52,85,.35),
-        transparent 40%
-    );
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(45, 105, 190, .25),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(15, 65, 150, .22),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #020817,
+            #06152f,
+            #010611
+        );
 }
 
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:100;
-    pointer-events:none;
-    opacity:.035;
-
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    opacity: .055;
     background-image:
-    repeating-radial-gradient(
-        circle at 0 0,
-        transparent 0,
-        transparent 2px,
-        white 3px
-    );
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(255,255,255,.2) 3px
+        );
 }
 
-
-/* SEMUA HALAMAN */
-
-.page{
-    position:fixed;
-    inset:0;
-
-    display:none;
-
-    overflow-y:auto;
-
-    padding:40px 20px 100px;
+#app {
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
-.page.active{
-    display:flex;
+/* =========================
+   PAGE
+========================= */
 
-    animation:appear .7s ease;
+.page {
+    position: absolute;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    text-align: center;
+    overflow: hidden;
 }
 
-@keyframes appear{
+.page.active {
+    display: flex;
+    animation: pageIn .7s ease;
+}
 
-    from{
-        opacity:0;
-        transform:translateY(18px);
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: scale(.98);
     }
 
-    to{
-        opacity:1;
-        transform:translateY(0);
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.content {
+    width: min(900px, 100%);
+    max-height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.content::-webkit-scrollbar {
+    display: none;
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.small {
+    margin-bottom: 18px;
+    color: #8fb9ff;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.intro-number {
+    margin-bottom: 25px;
+    color: #789bd0;
+    font-size: 13px;
+    letter-spacing: 5px;
+}
+
+h1 {
+    margin-bottom: 25px;
+    font-size: clamp(44px, 10vw, 90px);
+    line-height: .95;
+    letter-spacing: -3px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: clamp(30px, 6vw, 55px);
+}
+
+p {
+    color: #d7e3f8;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.blue {
+    color: #75aaff;
+}
+
+.line {
+    width: 60px;
+    height: 2px;
+    margin: 25px auto;
+    background: #6da4ff;
+}
+
+.quote {
+    max-width: 750px;
+    margin: 30px auto;
+    color: #e7efff;
+    font-size: clamp(22px, 5vw, 42px);
+    line-height: 1.4;
+    font-weight: 300;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.main-btn {
+    margin-top: 30px;
+    padding: 14px 28px;
+    border: 1px solid rgba(130,180,255,.4);
+    border-radius: 30px;
+    background: rgba(55,110,190,.25);
+    color: white;
+    transition: .3s;
+}
+
+.main-btn:hover {
+    transform: translateY(-2px);
+    background: rgba(70,130,220,.4);
+}
+
+/* =========================
+   LOCK SCREEN
+========================= */
+
+#page2 {
+    flex-direction: column;
+}
+
+.lock-title {
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.lock-subtitle {
+    margin-bottom: 25px;
+    color: #8296b8;
+    font-size: 13px;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #789bd0;
+    border-radius: 50%;
+    transition: .2s;
+}
+
+.dot.filled {
+    background: #8bb8ff;
+    box-shadow: 0 0 10px #6da4ff;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 70px);
+    justify-content: center;
+    gap: 14px;
+}
+
+.key {
+    width: 70px;
+    height: 70px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 50%;
+    background: rgba(255,255,255,.07);
+    color: white;
+    font-size: 24px;
+    transition: .15s;
+}
+
+.key:active {
+    transform: scale(.9);
+    background: rgba(100,150,230,.3);
+}
+
+.error {
+    height: 20px;
+    margin-top: 15px;
+    color: #ff8295;
+    font-size: 12px;
+}
+
+/* =========================
+   PHOTO
+========================= */
+
+.photo-box {
+    width: min(600px, 90vw);
+    margin: 25px auto;
+    overflow: hidden;
+    border: 1px solid rgba(130,180,255,.25);
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.45);
+}
+
+.photo-box img {
+    display: block;
+    width: 100%;
+    max-height: 55vh;
+    object-fit: cover;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery {
+    width: min(900px, 95vw);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 20px auto;
+}
+
+.gallery img {
+    display: block;
+    width: 100%;
+    height: 130px;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.gallery img:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+    height: 268px;
+}
+
+/* =========================
+   VIDEO
+========================= */
+
+.video-box {
+    width: min(360px, 80vw);
+    margin: 20px auto;
+    overflow: hidden;
+    border: 1px solid rgba(130,180,255,.25);
+    border-radius: 15px;
+    background: #000;
+}
+
+.video-box video {
+    display: block;
+    width: 100%;
+    max-height: 60vh;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final-title {
+    font-size: clamp(40px, 9vw, 80px);
+}
+
+.signature {
+    margin-top: 35px;
+    color: #9ab7e8;
+    font-size: 14px;
+    letter-spacing: 3px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation {
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transform: translateX(-50%);
+}
+
+.nav-btn {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 50%;
+    background: rgba(255,255,255,.08);
+    color: white;
+    font-size: 22px;
+}
+
+.page-counter {
+    color: #7891ba;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 60;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 50%;
+    background: rgba(255,255,255,.08);
+    color: white;
+    font-size: 18px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .page {
+        padding: 20px;
     }
 
-}
-
-
-/* TEKS */
-
-.small{
-    color:#8398aa;
-    font-size:9px;
-    letter-spacing:5px;
-    text-transform:uppercase;
-}
-
-.center{
-    width:100%;
-    max-width:650px;
-    margin:auto;
-    text-align:center;
-}
-
-.big-number{
-    font-family:Georgia,serif;
-    font-size:110px;
-    line-height:.6;
-    color:rgba(255,255,255,.05);
-}
-
-h1,h2{
-    font-family:Georgia,serif;
-    font-weight:400;
-}
-
-p{
-    color:#9aaab9;
-    font-size:12px;
-    line-height:2;
-}
-
-
-/* HALAMAN KODE */
-
-#page1{
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-}
-
-.code-box{
-    width:100%;
-    max-width:380px;
-}
-
-.symbol{
-    font-size:28px;
-    margin:25px 0;
-}
-
-.code-box h1{
-    font-size:42px;
-    margin-bottom:12px;
-}
-
-.subtitle{
-    color:#899baa;
-    font-size:11px;
-    margin-bottom:28px;
-}
-
-.dots{
-    display:flex;
-    justify-content:center;
-    gap:9px;
-    margin-bottom:10px;
-}
-
-.dot{
-    width:10px;
-    height:10px;
-
-    border:1px solid #8195a8;
-    border-radius:50%;
-}
-
-.dot.filled{
-    background:white;
-    border-color:white;
-}
-
-.status{
-    height:22px;
-    color:#aab7c2;
-    font-size:10px;
-}
-
-.keypad{
-    display:grid;
-    grid-template-columns:repeat(3,70px);
-    justify-content:center;
-    gap:12px;
-}
-
-.key{
-    width:70px;
-    height:58px;
-
-    border:1px solid rgba(255,255,255,.14);
-    border-radius:15px;
-
-    background:rgba(255,255,255,.05);
-
-    color:white;
-    font-size:18px;
-
-    cursor:pointer;
-}
-
-.key:active{
-    transform:scale(.93);
-}
-
-.key span{
-    display:block;
-    color:#65798c;
-    font-size:7px;
-    letter-spacing:1px;
-}
-
-.blank{
-    border:none;
-    background:transparent;
-}
-
-.code-hint{
-    margin-top:24px;
-    color:#5e7387;
-    font-size:8px;
-    letter-spacing:3px;
-}
-
-
-/* HALAMAN BIASA */
-
-.page-title{
-    font-size:48px;
-    margin:15px 0 28px;
-}
-
-.page-text{
-    max-width:580px;
-    margin:auto;
-}
-
-
-/* HALAMAN UCAPAN */
-
-.message{
-    width:100%;
-    max-width:650px;
-    margin:auto;
-}
-
-.message .page-title{
-    text-align:left;
-}
-
-.message-body{
-    border-left:1px solid rgba(255,255,255,.15);
-    padding-left:20px;
-}
-
-.message-body p{
-    font-family:Georgia,serif;
-    font-size:20px;
-    color:#dce3e8;
-    margin-bottom:22px;
-}
-
-.message-body .opening{
-    font-size:27px;
-}
-
-
-/* FOTO */
-
-.media{
-    width:100%;
-    max-width:760px;
-    margin:auto;
-}
-
-.media-heading{
-    text-align:center;
-    margin-bottom:30px;
-}
-
-.media-heading h2{
-    font-size:46px;
-    margin:12px 0;
-}
-
-.media-heading p{
-    font-size:9px;
-    letter-spacing:2px;
-}
-
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
-}
-
-.card{
-    background:#f0f1f2;
-    padding:5px 5px 13px;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.4);
-}
-
-.card img{
-    width:100%;
-    aspect-ratio:1/1;
-    object-fit:cover;
-    display:block;
-}
-
-.card-number{
-    color:#27343d;
-    text-align:center;
-    font-family:Georgia,serif;
-    font-size:11px;
-    margin-top:5px;
-}
-
-.video-box{
-    margin-top:35px;
-}
-
-.video-label{
-    text-align:center;
-    color:#8195a8;
-    font-size:9px;
-    letter-spacing:4px;
-    margin-bottom:12px;
-}
-
-.video-box video{
-    width:100%;
-    display:block;
-    background:#000;
-    border:1px solid rgba(255,255,255,.15);
-}
-
-
-/* HALAMAN TERAKHIR */
-
-#page12{
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-}
-
-.final-number{
-    font-family:Georgia,serif;
-    font-size:130px;
-    color:rgba(255,255,255,.05);
-}
-
-.final h1{
-    font-size:52px;
-}
-
-.line{
-    width:50px;
-    height:1px;
-    background:rgba(255,255,255,.3);
-    margin:28px auto;
-}
-
-.signature{
-    color:#718598;
-    font-family:Georgia,serif;
-    font-size:18px;
-}
-
-
-/* TOMBOL */
-
-.controls{
-    position:fixed;
-    left:0;
-    right:0;
-    bottom:18px;
-
-    display:none;
-
-    justify-content:center;
-    align-items:center;
-    gap:12px;
-
-    z-index:50;
-}
-
-.control-button{
-    border:1px solid rgba(255,255,255,.15);
-    background:rgba(5,17,30,.9);
-
-    color:#dce3e8;
-
-    padding:10px 18px;
-    border-radius:30px;
-
-    font-size:9px;
-    letter-spacing:2px;
-
-    cursor:pointer;
-}
-
-.page-count{
-    color:#64798d;
-    font-size:9px;
-    letter-spacing:2px;
-}
-
-
-/* TOMBOL MUSIK */
-
-.music-button{
-    position:fixed;
-    top:18px;
-    right:18px;
-
-    display:none;
-
-    z-index:60;
-
-    border:1px solid rgba(255,255,255,.15);
-    background:rgba(5,17,30,.9);
-
-    color:#dce3e8;
-
-    padding:10px 15px;
-    border-radius:30px;
-
-    font-size:8px;
-    letter-spacing:2px;
-
-    cursor:pointer;
-}
-
-
-/* HP */
-
-@media(max-width:600px){
-
-    .page{
-        padding:35px 18px 100px;
+    h1 {
+        letter-spacing: -2px;
     }
 
-    .code-box h1{
-        font-size:37px;
+    p {
+        font-size: 14px;
     }
 
-    .big-number{
-        font-size:95px;
+    .keypad {
+        grid-template-columns: repeat(3, 65px);
+        gap: 11px;
     }
 
-    .page-title{
-        font-size:40px;
+    .key {
+        width: 65px;
+        height: 65px;
     }
 
-    .message-body p{
-        font-size:18px;
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .gallery{
-        gap:7px;
+    .gallery img,
+    .gallery img:first-child {
+        height: 120px;
     }
 
-    .card{
-        padding:4px 4px 10px;
+    .gallery img:first-child {
+        grid-column: span 2;
     }
-
-    .card-number{
-        font-size:9px;
-    }
-
-    .final h1{
-        font-size:43px;
-    }
-
 }
-
 </style>
 </head>
 
-
 <body>
 
+<div id="app">
 
 <!-- =========================
-     MUSIK LATAR
+     BACKGROUND MUSIC
 ========================= -->
 
 <video
@@ -514,725 +464,701 @@ p{
 
 
 <!-- =========================
-     HALAMAN 1
+     MUSIC BUTTON
+========================= -->
+
+<button
+    class="music-btn"
+    id="musicBtn"
+    onclick="toggleMusic()">
+    ♪
+</button>
+
+
+<!-- =========================
+     PAGE 1
 ========================= -->
 
 <section class="page active" id="page1">
 
-<div class="code-box">
+    <div class="content">
 
-    <div class="small">
-        PRIVATE MESSAGE
-    </div>
+        <div class="intro-number">
+            01 / 12
+        </div>
 
-    <div class="symbol">
-        ♢
-    </div>
+        <div class="small">
+            A little something for you
+        </div>
 
-    <h1>
-        A little secret...
-    </h1>
+        <h1>
+            Happy<br>
+            <span class="blue">Birthday.</span>
+        </h1>
 
-    <div class="subtitle">
-        enter the code to continue
-    </div>
+        <div class="line"></div>
 
-    <div class="dots">
+        <p>
+            Ada sesuatu yang aku siapin buat kamu.
+            <br>
+            Tapi sebelum itu...
+        </p>
 
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-
-    </div>
-
-    <div class="status" id="status"></div>
-
-    <div class="keypad">
-
-        <button class="key" onclick="addNumber('1')">
-            1
-        </button>
-
-        <button class="key" onclick="addNumber('2')">
-            2
-            <span>ABC</span>
-        </button>
-
-        <button class="key" onclick="addNumber('3')">
-            3
-            <span>DEF</span>
-        </button>
-
-        <button class="key" onclick="addNumber('4')">
-            4
-            <span>GHI</span>
-        </button>
-
-        <button class="key" onclick="addNumber('5')">
-            5
-            <span>JKL</span>
-        </button>
-
-        <button class="key" onclick="addNumber('6')">
-            6
-            <span>MNO</span>
-        </button>
-
-        <button class="key" onclick="addNumber('7')">
-            7
-            <span>PQRS</span>
-        </button>
-
-        <button class="key" onclick="addNumber('8')">
-            8
-            <span>TUV</span>
-        </button>
-
-        <button class="key" onclick="addNumber('9')">
-            9
-            <span>WXYZ</span>
-        </button>
-
-        <button class="key blank"></button>
-
-        <button class="key" onclick="addNumber('0')">
-            0
-        </button>
-
-        <button class="key" onclick="removeNumber()">
-            ←
+        <button
+            class="main-btn"
+            onclick="nextPage()">
+            lanjut →
         </button>
 
     </div>
-
-    <div class="code-hint">
-        8 DIGIT ACCESS
-    </div>
-
-</div>
 
 </section>
 
 
 <!-- =========================
-     HALAMAN 2
+     PAGE 2
 ========================= -->
 
 <section class="page" id="page2">
 
-<div class="center">
+    <div class="content">
 
-    <div class="big-number">
-        01
+        <div class="small">
+            02 / 12
+        </div>
+
+        <div class="lock-title">
+            Masukkan kode
+        </div>
+
+        <div class="lock-subtitle">
+            ada sedikit rahasia di sini
+        </div>
+
+        <div class="dots">
+
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+
+        </div>
+
+        <div class="keypad">
+
+            <button class="key" onclick="pressKey('1')">1</button>
+            <button class="key" onclick="pressKey('2')">2</button>
+            <button class="key" onclick="pressKey('3')">3</button>
+
+            <button class="key" onclick="pressKey('4')">4</button>
+            <button class="key" onclick="pressKey('5')">5</button>
+            <button class="key" onclick="pressKey('6')">6</button>
+
+            <button class="key" onclick="pressKey('7')">7</button>
+            <button class="key" onclick="pressKey('8')">8</button>
+            <button class="key" onclick="pressKey('9')">9</button>
+
+            <div></div>
+
+            <button class="key" onclick="pressKey('0')">
+                0
+            </button>
+
+            <button class="key" onclick="deleteKey()">
+                ⌫
+            </button>
+
+        </div>
+
+        <div class="error" id="error"></div>
+
     </div>
-
-    <div class="small">
-        FROM GELSEY
-    </div>
-
-    <h2 class="page-title">
-        This little website<br>
-        is for you.
-    </h2>
-
-    <p class="page-text">
-
-        Nggak tau kenapa tiba-tiba kepikiran
-        bikin sesuatu kayak gini. Tapi karena
-        kamu ulang tahun, jadi sekalian aja.
-        Semoga kamu suka.
-
-    </p>
-
-</div>
 
 </section>
 
 
 <!-- =========================
-     HALAMAN 3
+     PAGE 3
 ========================= -->
 
 <section class="page" id="page3">
 
-<div class="center">
+    <div class="content">
 
-    <div class="big-number">
-        02
+        <div class="small">
+            03 / 12
+        </div>
+
+        <h2>
+            Finally,
+            <span class="blue">15.</span>
+        </h2>
+
+        <div class="line"></div>
+
+        <p>
+            Selamat ulang tahun, Nino.
+            <br><br>
+
+            Semoga di umur yang baru ini,
+            banyak hal baik yang datang ke hidup kamu.
+            Semoga semua yang sedang kamu perjuangkan
+            bisa perlahan tercapai.
+        </p>
+
     </div>
-
-    <div class="small">
-        OFFICIALLY
-    </div>
-
-    <h2 class="page-title">
-        You're 15 now.
-    </h2>
-
-    <p>
-        Selamat datang di chapter baru :)
-    </p>
-
-</div>
 
 </section>
 
 
 <!-- =========================
-     HALAMAN 4
+     PAGE 4
 ========================= -->
 
 <section class="page" id="page4">
 
-<div class="message">
+    <div class="content">
 
-    <div class="small">
-        FIRST OF ALL
-    </div>
+        <div class="small">
+            04 / 12
+        </div>
 
-    <h2 class="page-title">
-        Happy birthday,<br>
-        Ninoo! 🥳🎂
-    </h2>
-
-    <div class="message-body">
-
-        <p class="opening">
-            Selamat ulang tahun yaa.
-        </p>
+        <h2>
+            15 tahun.
+        </h2>
 
         <p>
-            Semoga di umur yang sekarang kamu
-            bisa jadi versi terbaik dari diri kamu
-            sendiri.
+            Bukan cuma tentang bertambahnya angka,
+            tapi juga tentang semakin banyak cerita,
+            pengalaman, dan hal-hal baru
+            yang bakal kamu temuin.
         </p>
 
-        <p>
-            Semoga semua hal baik yang kamu
-            usahakan selama ini satu-satu bisa
-            tercapai.
-        </p>
-
-        <p>
-            Semoga selalu dikasih kesehatan,
-            kebahagiaan, rezeki yang cukup,
-            dan orang-orang baik di sekitar kamu.
-        </p>
+        <div class="quote">
+            "Semoga langkah kamu selalu membawa
+            kamu ke tempat yang baik."
+        </div>
 
     </div>
-
-</div>
 
 </section>
 
 
 <!-- =========================
-     HALAMAN 5
+     PAGE 5
 ========================= -->
 
 <section class="page" id="page5">
 
-<div class="center">
+    <div class="content">
 
-    <div class="small">
-        CHAPTER 15
+        <div class="small">
+            05 / 12
+        </div>
+
+        <h2>
+            One thing.
+        </h2>
+
+        <div class="line"></div>
+
+        <p>
+            Jangan terlalu keras sama diri sendiri.
+            <br><br>
+
+            Nggak semua hal harus langsung sempurna.
+            Kadang proses yang panjang justru
+            yang bikin sebuah perjalanan jadi berarti.
+        </p>
+
     </div>
-
-    <h2 class="page-title">
-        More good things<br>
-        are coming.
-    </h2>
-
-    <p class="page-text">
-
-        Uwihhh sekarang umur kamu nambah lagi.
-
-        <br><br>
-
-        Semoga bertambahnya umur bukan cuma
-        sekadar angka, tapi juga jadi awal dari
-        banyak hal baik yang bakal kamu temuin
-        ke depannya.
-
-        <br><br>
-
-        Mungkin nggak semua hari bakal berjalan
-        sesuai yang kamu mau, tapi semoga kamu
-        selalu punya alasan buat tetap semangat
-        dan terus melangkah.
-
-    </p>
-
-</div>
 
 </section>
 
 
 <!-- =========================
-     HALAMAN 6
+     PAGE 6
 ========================= -->
 
 <section class="page" id="page6">
 
-<div class="center">
+    <div class="content">
 
-    <div class="small">
-        THANK YOU
+        <div class="small">
+            06 / 12
+        </div>
+
+        <h2>
+            Keep going.
+        </h2>
+
+        <p>
+            Kalau suatu hari semuanya terasa berat,
+            istirahat sebentar nggak apa-apa.
+            <br><br>
+
+            Yang penting jangan berhenti percaya
+            kalau kamu bisa melewati semuanya.
+        </p>
+
+        <div class="line"></div>
+
+        <p class="blue">
+            Pelan-pelan juga tetap maju.
+        </p>
+
     </div>
-
-    <h2 class="page-title">
-        For the memories.
-    </h2>
-
-    <p class="page-text">
-
-        Makasih juga karena selama ini udah
-        jadi teman yang baik.
-
-        <br><br>
-
-        Makasih buat semua cerita, candaan,
-        obrolan random, dan hal-hal kecil
-        yang mungkin kelihatannya sepele.
-
-        <br><br>
-
-        Tapi ternyata hal-hal kecil itu yang
-        nantinya jadi bagian dari kenangan
-        yang bakal diinget.
-
-    </p>
-
-</div>
 
 </section>
 
 
 <!-- =========================
-     HALAMAN 7
+     PAGE 7
 ========================= -->
 
 <section class="page" id="page7">
 
-<div class="center">
+    <div class="content">
 
-    <div class="small">
-        A LITTLE REMINDER
+        <div class="small">
+            07 / 12
+        </div>
+
+        <h2>
+            Some memories.
+        </h2>
+
+        <p>
+            Beberapa momen mungkin terlihat sederhana,
+            tapi tetap seru untuk diingat.
+        </p>
+
+        <div class="photo-box">
+
+            <img
+                src="motion_photo_446607175286332145.jpg"
+                alt="Foto">
+
+        </div>
+
     </div>
-
-    <h2 class="page-title">
-        Keep being yourself.
-    </h2>
-
-    <p class="page-text">
-
-        Aku juga berharap di umur yang baru
-        ini kamu bisa lebih percaya sama
-        diri sendiri.
-
-        <br><br>
-
-        Jangan terlalu sering ngerasa kurang
-        atau ngebandingin diri kamu sama
-        orang lain.
-
-        <br><br>
-
-        Tetap jadi Nino yang aku kenal,
-        yang punya caranya sendiri buat
-        menghadapi banyak hal.
-
-    </p>
-
-</div>
 
 </section>
 
 
 <!-- =========================
-     HALAMAN 8
+     PAGE 8
      FOTO + VIDEO
 ========================= -->
 
 <section class="page" id="page8">
 
-<div class="media">
-
-    <div class="media-heading">
+    <div class="content">
 
         <div class="small">
-            RANDOM MEMORIES
+            08 / 12
         </div>
 
         <h2>
-            A few things.
+            Little archive.
         </h2>
 
-        <p>
-            7 photos · 1 random video
-        </p>
-
-    </div>
-
-
-    <div class="gallery">
-
-        <div class="card">
+        <div class="gallery">
 
             <img
                 src="motion_photo_446607175286332145.jpg"
                 alt="Foto 1">
 
-            <div class="card-number">
-                01
-            </div>
-
-        </div>
-
-
-        <div class="card">
-
             <img
                 src="Screenshot_20260808-194814.png"
                 alt="Foto 2">
-
-            <div class="card-number">
-                02
-            </div>
-
-        </div>
-
-
-        <div class="card">
 
             <img
                 src="Screenshot_20260731-154657.png"
                 alt="Foto 3">
 
-            <div class="card-number">
-                03
-            </div>
-
-        </div>
-
-
-        <div class="card">
-
             <img
                 src="IMG-20260813-WA0136.jpg"
                 alt="Foto 4">
-
-            <div class="card-number">
-                04
-            </div>
-
-        </div>
-
-
-        <div class="card">
 
             <img
                 src="IMG-20260813-WA0070.jpg"
                 alt="Foto 5">
 
-            <div class="card-number">
-                05
-            </div>
-
-        </div>
-
-
-        <div class="card">
-
             <img
                 src="IMG-20260803-WA0047.jpg"
                 alt="Foto 6">
-
-            <div class="card-number">
-                06
-            </div>
-
-        </div>
-
-
-        <div class="card">
 
             <img
                 src="IMG-20260803-WA0026.jpg"
                 alt="Foto 7">
 
-            <div class="card-number">
-                07
-            </div>
+        </div>
+
+        <!-- VIDEO YANG KAMU UPLOAD -->
+
+        <div class="video-box">
+
+            <video
+                controls
+                playsinline
+                preload="metadata">
+
+                <source
+                    src="lv_7678964586480979220_20260908001623.mp4"
+                    type="video/mp4">
+
+                Browser kamu tidak mendukung video.
+
+            </video>
 
         </div>
 
-    </div>
-
-
-    <div class="video-box">
-
-        <div class="video-label">
-            ONE RANDOM VIDEO
-        </div>
-
-        <video
-            controls
-            playsinline>
-
-            <source
-                src="ly_7678964586480979220_20260908001623.mp4"
-                type="video/mp4">
-
-            Video tidak dapat diputar.
-
-        </video>
+        <p style="font-size:12px;color:#7185a8;">
+            sedikit arsip yang kebetulan tersimpan.
+        </p>
 
     </div>
-
-</div>
 
 </section>
 
 
 <!-- =========================
-     HALAMAN 9
+     PAGE 9
 ========================= -->
 
 <section class="page" id="page9">
 
-<div class="center">
+    <div class="content">
 
-    <div class="small">
-        BTW
+        <div class="small">
+            09 / 12
+        </div>
+
+        <h2>
+            For your future.
+        </h2>
+
+        <div class="line"></div>
+
+        <p>
+            Semoga kamu selalu dikelilingi
+            orang-orang yang tulus.
+            <br><br>
+
+            Semoga sekolah, pertemanan,
+            keluarga, dan semua hal yang kamu jalani
+            bisa membawa banyak cerita baik.
+        </p>
+
     </div>
-
-    <h2 class="page-title">
-        Yes, the video is random.
-    </h2>
-
-    <p>
-        Nggak ada hubungannya sama ulang tahun.
-        <br>
-        Tapi yaudah masukin aja 😭
-    </p>
-
-</div>
 
 </section>
 
 
 <!-- =========================
-     HALAMAN 10
+     PAGE 10
 ========================= -->
 
 <section class="page" id="page10">
 
-<div class="center">
+    <div class="content">
 
-    <div class="small">
-        ONE LAST WISH
+        <div class="small">
+            10 / 12
+        </div>
+
+        <div class="quote">
+            Semoga tahun ini menjadi
+            salah satu bab terbaik
+            dalam hidup kamu.
+        </div>
+
+        <div class="line"></div>
+
+        <p>
+            Tetap jadi Nino yang aku kenal.
+        </p>
+
     </div>
-
-    <h2 class="page-title">
-        For your 15th year...
-    </h2>
-
-    <p class="page-text">
-
-        Semoga tahun ini membawa lebih banyak
-        tawa daripada air mata, lebih banyak
-        kabar baik daripada kabar buruk,
-        dan lebih banyak momen yang bikin
-        kamu bersyukur.
-
-        <br><br>
-
-        Kalau nanti ada masa-masa yang berat,
-        semoga kamu selalu punya orang-orang
-        yang bisa menemani dan mendukung kamu.
-
-        <br><br>
-
-        Yang penting jangan berhenti percaya
-        kalau setelah hari yang berat pasti
-        ada hari yang lebih baik.
-
-        <br><br>
-
-        Semoga semua doa yang kamu punya
-        bisa menemukan jalannya masing-masing
-        untuk terkabul.
-
-    </p>
-
-</div>
 
 </section>
 
 
 <!-- =========================
-     HALAMAN 11
+     PAGE 11
 ========================= -->
 
 <section class="page" id="page11">
 
-<div class="center">
+    <div class="content">
 
-    <div class="small">
-        A MESSAGE FROM
+        <div class="small">
+            11 / 12
+        </div>
+
+        <h2>
+            Once again...
+        </h2>
+
+        <p>
+            Selamat ulang tahun yang ke-15, Nino.
+            <br><br>
+
+            Semoga sehat selalu,
+            dimudahkan dalam setiap urusan,
+            diberi banyak kesempatan baik,
+            dan selalu punya alasan untuk tersenyum.
+        </p>
+
+        <div class="line"></div>
+
+        <p class="blue">
+            Enjoy your day.
+        </p>
+
     </div>
-
-    <h2 class="page-title">
-        Gelsey.
-    </h2>
-
-    <p class="page-text">
-
-        Pokoknya sekali lagi,
-        happy birthday, Nino! 🎉
-
-        <br><br>
-
-        Semoga umur 15 membawa banyak
-        keberuntungan dan kebahagiaan
-        buat kamu.
-
-        <br><br>
-
-        Semoga kamu selalu sehat, bahagia,
-        sukses, dan tetap jadi orang baik.
-
-        <br><br>
-
-        Semoga tahun ini jadi tahun yang
-        penuh cerita baik dan momen yang
-        bisa kamu inget nanti.
-
-    </p>
-
-</div>
 
 </section>
 
 
 <!-- =========================
-     HALAMAN 12
+     PAGE 12
 ========================= -->
 
 <section class="page" id="page12">
 
-<div class="center final">
+    <div class="content">
 
-    <div class="final-number">
-        15
+        <div class="small">
+            12 / 12
+        </div>
+
+        <div class="final-title">
+            Happy<br>
+            <span class="blue">15th.</span>
+        </div>
+
+        <div class="line"></div>
+
+        <p>
+            Semoga semua hal baik
+            menemukan jalannya ke kamu.
+        </p>
+
+        <div class="signature">
+            — Gelsey
+        </div>
+
     </div>
-
-    <div class="small">
-        THE END
-    </div>
-
-    <h1>
-        Happy Birthday,<br>
-        Nino. ♡
-    </h1>
-
-    <div class="line"></div>
-
-    <p>
-        MAY THIS BE ONE OF YOUR BEST YEARS.
-    </p>
-
-    <div class="line"></div>
-
-    <div class="signature">
-        made specially by Gelsey
-    </div>
-
-</div>
 
 </section>
 
 
 <!-- =========================
-     KONTROL
+     NAVIGATION
 ========================= -->
 
-<div
-    class="controls"
-    id="controls">
+<div class="navigation" id="navigation">
 
     <button
-        class="control-button"
-        onclick="previousPage()">
-
-        ← BACK
-
+        class="nav-btn"
+        onclick="prevPage()">
+        ‹
     </button>
 
     <div
-        class="page-count"
-        id="pageCount">
-
+        class="page-counter"
+        id="counter">
         01 / 12
-
     </div>
 
     <button
-        class="control-button"
+        class="nav-btn"
         onclick="nextPage()">
-
-        NEXT →
-
+        ›
     </button>
 
 </div>
 
-
-<!-- TOMBOL MUSIK -->
-
-<button
-    class="music-button"
-    id="musicButton"
-    onclick="toggleMusic()">
-
-    ♫ MUSIC
-
-</button>
+</div>
 
 
 <script>
 
 /* =========================
-   KODE RAHASIA
+   PENGATURAN
 ========================= */
 
 const SECRET_CODE = "69692011";
 
+const totalPages = 12;
+
+let currentPage = 1;
 let enteredCode = "";
 
+const music =
+    document.getElementById("backgroundMusic");
 
-const dots =
-    document.querySelectorAll(".dot");
-
-const statusText =
-    document.getElementById("status");
+const musicBtn =
+    document.getElementById("musicBtn");
 
 
-function updateDots(){
+/* =========================
+   PINDAH HALAMAN
+========================= */
 
-    dots.forEach(function(dot,index){
+function showPage(number) {
 
-        if(index < enteredCode.length){
+    if (number < 1) {
+        number = 1;
+    }
+
+    if (number > totalPages) {
+        number = totalPages;
+    }
+
+    currentPage = number;
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page => {
+            page.classList.remove("active");
+        });
+
+    const target =
+        document.getElementById(
+            "page" + currentPage
+        );
+
+    if (target) {
+        target.classList.add("active");
+    }
+
+    document.getElementById("counter")
+        .textContent =
+            String(currentPage).padStart(2, "0") +
+            " / " +
+            String(totalPages).padStart(2, "0");
+
+    if (currentPage === 2) {
+
+        document.getElementById(
+            "navigation"
+        ).style.display = "none";
+
+    } else {
+
+        document.getElementById(
+            "navigation"
+        ).style.display = "flex";
+
+    }
+
+}
+
+
+function nextPage() {
+
+    if (currentPage < totalPages) {
+        showPage(currentPage + 1);
+    }
+
+}
+
+
+function prevPage() {
+
+    if (currentPage > 1) {
+        showPage(currentPage - 1);
+    }
+
+}
+
+
+/* =========================
+   KEYPAD
+========================= */
+
+function pressKey(number) {
+
+    if (enteredCode.length >= 8) {
+        return;
+    }
+
+    enteredCode += number;
+
+    updateDots();
+
+    if (enteredCode.length === 8) {
+
+        setTimeout(() => {
+
+            if (enteredCode === SECRET_CODE) {
+
+                document.getElementById(
+                    "error"
+                ).textContent = "";
+
+                startMusic();
+
+                enteredCode = "";
+
+                updateDots();
+
+                showPage(3);
+
+            } else {
+
+                document.getElementById(
+                    "error"
+                ).textContent =
+                    "Kode salah, coba lagi.";
+
+                enteredCode = "";
+
+                updateDots();
+
+            }
+
+        }, 250);
+
+    }
+
+}
+
+
+function deleteKey() {
+
+    enteredCode =
+        enteredCode.slice(0, -1);
+
+    updateDots();
+
+    document.getElementById(
+        "error"
+    ).textContent = "";
+
+}
+
+
+function updateDots() {
+
+    const dots =
+        document.querySelectorAll(".dot");
+
+    dots.forEach((dot, index) => {
+
+        if (index < enteredCode.length) {
 
             dot.classList.add("filled");
 
-        }else{
+        } else {
 
             dot.classList.remove("filled");
 
@@ -1243,155 +1169,45 @@ function updateDots(){
 }
 
 
-function addNumber(number){
-
-    if(enteredCode.length >= 8){
-        return;
-    }
-
-    enteredCode += number;
-
-    updateDots();
-
-    if(enteredCode.length === 8){
-
-        setTimeout(checkCode,300);
-
-    }
-
-}
-
-
-function removeNumber(){
-
-    enteredCode =
-        enteredCode.slice(0,-1);
-
-    updateDots();
-
-    statusText.textContent = "";
-
-}
-
-
-function checkCode(){
-
-    if(enteredCode === SECRET_CODE){
-
-        statusText.textContent =
-            "access granted";
-
-        playMusic();
-
-        setTimeout(function(){
-
-            showPage(1);
-
-        },700);
-
-    }else{
-
-        statusText.textContent =
-            "wrong code, try again";
-
-        setTimeout(function(){
-
-            enteredCode = "";
-
-            updateDots();
-
-            statusText.textContent = "";
-
-        },700);
-
-    }
-
-}
-
-
 /* =========================
-   HALAMAN
+   MUSIK
 ========================= */
 
-const pages =
-    document.querySelectorAll(".page");
+function startMusic() {
 
-let currentPage = 0;
+    music.volume = 0.55;
 
+    music.play()
+        .then(() => {
 
-const controls =
-    document.getElementById("controls");
+            musicBtn.textContent = "♫";
 
-const musicButton =
-    document.getElementById("musicButton");
+        })
+        .catch(() => {
 
-const pageCount =
-    document.getElementById("pageCount");
+            musicBtn.textContent = "♪";
 
-
-function showPage(number){
-
-    if(
-        number < 0 ||
-        number >= pages.length
-    ){
-
-        return;
-
-    }
-
-
-    pages.forEach(function(page){
-
-        page.classList.remove("active");
-
-    });
-
-
-    pages[number].classList.add("active");
-
-    currentPage = number;
-
-
-    if(currentPage === 0){
-
-        controls.style.display = "none";
-
-        musicButton.style.display = "none";
-
-    }else{
-
-        controls.style.display = "flex";
-
-        musicButton.style.display = "block";
-
-    }
-
-
-    pageCount.textContent =
-        String(currentPage + 1).padStart(2,"0")
-        + " / "
-        + pages.length;
+        });
 
 }
 
 
-function nextPage(){
+function toggleMusic() {
 
-    if(currentPage < pages.length - 1){
+    if (music.paused) {
 
-        showPage(currentPage + 1);
+        music.play()
+            .then(() => {
 
-    }
+                musicBtn.textContent = "♫";
 
-}
+            });
 
+    } else {
 
-function previousPage(){
+        music.pause();
 
-    if(currentPage > 1){
-
-        showPage(currentPage - 1);
+        musicBtn.textContent = "♪";
 
     }
 
@@ -1399,78 +1215,40 @@ function previousPage(){
 
 
 /* =========================
-   MUSIK LATAR
-========================= */
-
-const backgroundMusic =
-    document.getElementById("backgroundMusic");
-
-
-function playMusic(){
-
-    backgroundMusic.volume = 0.35;
-
-    backgroundMusic.play()
-    .then(function(){
-
-        musicButton.textContent =
-            "♫ MUSIC ON";
-
-    })
-    .catch(function(){
-
-        musicButton.textContent =
-            "♫ PLAY MUSIC";
-
-    });
-
-}
-
-
-function toggleMusic(){
-
-    if(backgroundMusic.paused){
-
-        backgroundMusic.play();
-
-        musicButton.textContent =
-            "♫ MUSIC ON";
-
-    }else{
-
-        backgroundMusic.pause();
-
-        musicButton.textContent =
-            "♫ MUSIC OFF";
-
-    }
-
-}
-
-
-/* =========================
-   TOMBOL KEYBOARD
+   KEYBOARD
 ========================= */
 
 document.addEventListener(
     "keydown",
-    function(event){
+    function(event) {
 
-        if(currentPage !== 0){
-            return;
-        }
+        if (currentPage === 2) {
 
+            if (/^[0-9]$/.test(event.key)) {
 
-        if(/^[0-9]$/.test(event.key)){
+                pressKey(event.key);
 
-            addNumber(event.key);
+            }
 
-        }
+            if (event.key === "Backspace") {
 
+                deleteKey();
 
-        if(event.key === "Backspace"){
+            }
 
-            removeNumber();
+        } else {
+
+            if (event.key === "ArrowRight") {
+
+                nextPage();
+
+            }
+
+            if (event.key === "ArrowLeft") {
+
+                prevPage();
+
+            }
 
         }
 
@@ -1479,18 +1257,17 @@ document.addEventListener(
 
 
 /* =========================
-   GESER HP
+   SWIPE HP
 ========================= */
 
-let touchStart = 0;
-let touchEnd = 0;
-
+let touchStartX = 0;
+let touchEndX = 0;
 
 document.addEventListener(
     "touchstart",
-    function(event){
+    function(event) {
 
-        touchStart =
+        touchStartX =
             event.changedTouches[0].screenX;
 
     }
@@ -1499,40 +1276,50 @@ document.addEventListener(
 
 document.addEventListener(
     "touchend",
-    function(event){
+    function(event) {
 
-        touchEnd =
+        touchEndX =
             event.changedTouches[0].screenX;
 
-
-        const distance =
-            touchEnd - touchStart;
-
-
-        if(Math.abs(distance) < 60){
-            return;
-        }
-
-
-        if(distance < 0){
-
-            nextPage();
-
-        }else{
-
-            previousPage();
-
-        }
+        handleSwipe();
 
     }
 );
 
 
-/* MULAI */
+function handleSwipe() {
 
-showPage(0);
+    const distance =
+        touchEndX - touchStartX;
+
+    if (Math.abs(distance) < 50) {
+        return;
+    }
+
+    if (currentPage === 2) {
+        return;
+    }
+
+    if (distance < 0) {
+
+        nextPage();
+
+    } else {
+
+        prevPage();
+
+    }
+
+}
+
+
+/* =========================
+   MULAI
+========================= */
+
+showPage(1);
 
 </script>
 
 </body>
-    </html>
+</html>
